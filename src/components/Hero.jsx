@@ -44,7 +44,7 @@ const Hero = ({ setPage }) => {
           <motion.h1 
             variants={itemVariants} 
             whileHover={{ scale: 1.01 }}
-            className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-2xl cursor-default transition-all duration-300"
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-2xl cursor-default transition-all duration-300"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             Kenya Transport <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">
@@ -71,7 +71,7 @@ const Hero = ({ setPage }) => {
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: '0 8px 25px rgba(27, 93, 165, 0.3)' }}
               whileTap={{ scale: 0.97 }}
-              className="px-6 py-3 bg-napta-blue hover:bg-napta-navy text-white rounded-xl font-bold text-base flex items-center gap-2 transition-all duration-300"
+              className="px-6 py-3 bg-napta-blue hover:bg-napta-navy text-white rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all duration-300"
               onClick={() => setPage('Registration')}
             >
               Register Now
