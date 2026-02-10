@@ -43,24 +43,21 @@ const Hero = ({ setPage }) => {
         >
           <motion.h1 
             variants={itemVariants} 
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight"
+            className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-xl"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-blue to-sustainable-green">
-              Kenya National <br className="hidden md:block" />
-              Transport Summit & Expo
-            </span>
+            Kenya National Transport Summit & Expo (KNTS&E)
           </motion.h1>
 
-          <motion.div variants={itemVariants} className="mb-10 space-y-4">
+          <motion.div variants={itemVariants} className="mb-8 md:mb-12 space-y-4">
             <p 
-              className="text-lg md:text-xl font-medium text-white max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Building Safe, Sustainable and Inclusive Transport Systems
+              Theme: Building Safe, Sustainable and Inclusive Transport Systems for Kenya
             </p>
-            <p className="text-sm md:text-base font-normal text-slate-300 uppercase tracking-[0.2em]">
-              23rd – 25th September 2026 • Nairobi, Kenya
+            <p className="text-xs md:text-sm font-normal text-slate-400 uppercase tracking-[0.3em]">
+              23rd – 25th September 2026
             </p>
           </motion.div>
 

@@ -62,7 +62,7 @@ export default function Registration() {
   };
 
   return (
-    <section className="pt-32 pb-20">
+    <section className="pt-24 md:pt-32 pb-20">
       <div className="max-w-2xl mx-auto px-4">
         <div className="glass-card rounded-3xl overflow-hidden">
           {/* Progress Bar */}

@@ -6,7 +6,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
   const linkHover = { x: 5, color: "#ffffff" };
 
   return (
-    <footer className="bg-napta-navy border-t border-white/10 pt-20 pb-10" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <footer className="bg-napta-navy border-t border-white/10 pt-16 md:pt-20 pb-10" style={{ fontFamily: "'Inter', sans-serif" }}>
       <div className="container mx-auto px-6">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">

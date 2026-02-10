@@ -36,11 +36,11 @@ const Scorecard = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-100">
+    <section className="py-16 md:py-20 bg-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-end mb-12">
           <div className="max-w-md">
-            <h2 className="text-3xl font-bold text-slate-900 mb-2 tracking-tight">Accountability Scorecard</h2>
+
             <p className="text-slate-600 text-sm">Real-time progress tracking of national transport objectives since the 2025 Summit.</p>
           </div>
           <div className="hidden md:block h-px flex-1 bg-slate-200 mx-8 mb-4" />

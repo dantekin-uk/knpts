@@ -77,7 +77,7 @@ export default function Programme() {
       <h2 className="text-4xl font-bold text-slate-900 mb-8 text-center">Summit Schedule</h2>
       
       {/* Day Selector Tabs */}
-      <div className="flex gap-2 mb-12 glass-card p-2 rounded-2xl">
+      <div className="flex gap-2 mb-12 glass-card p-2 rounded-2xl overflow-x-auto no-scrollbar">
         {days.map((day) => (
           <button
             key={day.id}

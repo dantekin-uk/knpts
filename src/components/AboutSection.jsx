@@ -23,7 +23,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-28 bg-white overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <section id="about" className="py-20 md:py-28 bg-white overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
       <motion.div 
         className="container mx-auto px-6"
         variants={containerVariants}
@@ -32,7 +32,7 @@ const AboutSection = () => {
         viewport={{ once: true, margin: "-100px" }}
       >
         
-        <div className="flex flex-col lg:flex-row gap-16 mb-24 items-start">
+        <div className="flex flex-col lg:flex-row gap-10 md:gap-16 mb-16 md:mb-24 items-start">
           <motion.div variants={itemVariants} className="lg:w-7/12">
             <h2 className="text-2xl md:text-3xl font-extrabold text-napta-navy leading-tight mb-8 tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
               From Vision <br/>
@@ -84,7 +84,7 @@ const AboutSection = () => {
               <img 
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" 
                 alt="Summit Official" 
-                className="w-full h-[550px] object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-[400px] md:h-[550px] object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
             </motion.div>

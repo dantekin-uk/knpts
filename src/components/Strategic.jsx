@@ -16,12 +16,12 @@ const Strategic = () => {
   };
 
   return (
-    <section className="py-24 bg-white overflow-hidden relative">
+    <section className="py-16 md:py-24 bg-white overflow-hidden relative">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0D2D50 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
       
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
           
           {/* Left Column: High-Impact Visual */}
           <motion.div 
@@ -35,7 +35,7 @@ const Strategic = () => {
               <img 
                 src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=1000" 
                 alt="Kenya Transport Infrastructure" 
-                className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-[400px] md:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
               />
               
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg">

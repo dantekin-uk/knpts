@@ -35,7 +35,7 @@ const FloatingDock = () => {
   ];
 
   return (
-    <div className="relative z-20 -mt-10 md:-mt-16 px-4">
+    <div className="relative z-20 -mt-8 md:-mt-16 px-4">
       <div className="max-w-6xl mx-auto relative">
        
 

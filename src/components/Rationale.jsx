@@ -17,7 +17,7 @@ const Rationale = () => {
   };
 
   return (
-    <section className="py-20 bg-slate-50 overflow-hidden">
+    <section className="py-16 md:py-20 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-6">
         
         <motion.div 
