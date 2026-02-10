@@ -33,7 +33,7 @@ const Hero = ({ setPage }) => {
       </video>
 
       {/* Black overlay for cinematic contrast */}
-      <div className="absolute inset-0 z-[1] bg-black/40 backdrop-blur-[1px]"></div>
+      <div className="absolute inset-0 z-[1] bg-black/50 backdrop-blur-[1px]"></div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
@@ -43,21 +43,24 @@ const Hero = ({ setPage }) => {
         >
           <motion.h1 
             variants={itemVariants} 
-            className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-xl"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Kenya National Transport Summit & Expo (KNTS&E)
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-blue to-sustainable-green">
+              Kenya National <br className="hidden md:block" />
+              Transport Summit & Expo
+            </span>
           </motion.h1>
 
-          <motion.div variants={itemVariants} className="mb-8 md:mb-12 space-y-4">
+          <motion.div variants={itemVariants} className="mb-10 space-y-4">
             <p 
-              className="text-base md:text-lg font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
+              className="text-lg md:text-xl font-medium text-white max-w-3xl mx-auto leading-relaxed"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Theme: Building Safe, Sustainable and Inclusive Transport Systems for Kenya
+              Building Safe, Sustainable and Inclusive Transport Systems
             </p>
-            <p className="text-xs md:text-sm font-normal text-slate-400 uppercase tracking-[0.3em]">
-              23rd – 25th September 2026
+            <p className="text-sm md:text-base font-normal text-slate-300 uppercase tracking-[0.2em]">
+              23rd – 25th September 2026 • Nairobi, Kenya
             </p>
           </motion.div>
 
