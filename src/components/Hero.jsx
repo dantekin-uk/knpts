@@ -44,7 +44,7 @@ const Hero = ({ setPage }) => {
           <motion.h1 
             variants={itemVariants} 
             whileHover={{ scale: 1.01 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-2xl cursor-default transition-all duration-300"
+            className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-2xl cursor-default transition-all duration-300"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             Kenya Transport <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">
@@ -54,12 +54,12 @@ const Hero = ({ setPage }) => {
 
           <motion.div variants={itemVariants} className="mb-8 md:mb-12 space-y-4">
             <p 
-              className="text-base md:text-lg font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
+              className="text-lg md:text-xl font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Building Safe, Sustainable and Inclusive Transport Systems
             </p>
-            <p className="text-xs md:text-sm font-normal text-slate-400 uppercase tracking-[0.3em]">
+            <p className="text-sm md:text-base font-normal text-slate-400 uppercase tracking-[0.3em]">
               30th Sep - 2nd Oct 2026 • KICC, Nairobi
             </p>
           </motion.div>
