@@ -1,0 +1,25 @@
+/* Tailwind v4 Import */
+@import "tailwindcss";
+
+@theme {
+  --color-napta-navy: #0D2D50;
+  --color-napta-blue: #1B5DA5;
+  --color-sustainable-green: #15803D;
+  --color-safety-gold: #FACC15;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased selection:bg-napta-blue/20;
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/80 border border-slate-200 shadow-xl;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-napta-navy via-napta-blue to-sustainable-green;
+  }
+}
