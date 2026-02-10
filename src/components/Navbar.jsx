@@ -47,10 +47,12 @@ const Navbar = ({ activePage, setPage }) => {
             onClick={() => setPage('Home')}
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-napta-blue to-sustainable-green rounded-xl flex items-center justify-center text-white font-black text-sm shadow-lg shadow-napta-blue/30">
-              KTS&E
+            <div className="w-8 h-8 md:w-9 md:h-9 bg-napta-navy rounded-lg md:rounded-xl flex items-center justify-center shadow-lg shadow-napta-navy/20 group-hover:scale-110 transition-transform duration-300">
+              <Zap className="text-white w-4 h-4 md:w-5 md:h-5 fill-white" />
             </div>
-            <span className="text-white font-black text-xl tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>KTS&E 2026</span>
+            <span className={`font-bold text-lg md:text-xl tracking-tight transition-colors duration-300 ${scrolled ? 'text-slate-900' : 'text-white'}`}>
+              KTS&E <span className="text-napta-blue">2026</span>
+            </span>
           </motion.div>
         </div>
         
