@@ -51,7 +51,7 @@ export default function About() {
               Shaping the Future of <span className="text-gradient">African Mobility</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12">
-              The Kenya National Transport Summit & Expo (KNTS&E) is East Africa's premier platform for transport and infrastructure development, bringing together policymakers, industry leaders, and innovators.
+              The Kenya Transport Summit & Expo (KTS&E) is East Africa's premier platform for transport and infrastructure development, bringing together policymakers, industry leaders, and innovators.
             </p>
           </motion.div>
         </div>

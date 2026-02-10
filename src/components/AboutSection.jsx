@@ -40,7 +40,7 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-slate-600 text-sm md:text-base font-normal leading-relaxed max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-              The <span className="text-napta-blue font-semibold">Kenya National Transport Summit & Expo (KNTS&E) 2026</span> is the successor to the 2025 Inaugural Summit. It serves as a unified national forum to move from fragmented planning to <span className="text-napta-navy font-bold">integrated national delivery</span> across all transport modes.
+              The <span className="text-napta-blue font-semibold">Kenya Transport Summit & Expo (KTS&E) 2026</span> is the successor to the 2025 Inaugural Summit. It serves as a unified national forum to move from fragmented planning to <span className="text-napta-navy font-bold">integrated national delivery</span> across all transport modes.
             </p>
 
             {/* Moved Mandate Card to Left Column */}

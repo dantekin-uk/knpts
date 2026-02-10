@@ -144,7 +144,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
         <div className="pt-10 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-xs text-slate-600">
-              © 2026 Kenya National Transport Summit & Expo. All Rights Reserved. 
+              2026 KTS&E. All Rights Reserved. 
               <span className="block md:inline mt-1 md:mt-0 md:ml-2">National Public Transport Alliance (NAPTA).</span>
             </p>
             

@@ -32,33 +32,54 @@ const Hero = ({ setPage }) => {
         <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
       </video>
 
-      {/* Black overlay for cinematic contrast */}
-      <div className="absolute inset-0 z-[1] bg-black/50 backdrop-blur-[1px]"></div>
+      {/* Gradient overlay for modern look */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-black/40 to-black/80"></div>
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-napta-blue/20 to-sustainable-green/10"></div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="backdrop-blur-sm bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl"
         >
+          <motion.div 
+            variants={itemVariants}
+            className="inline-block px-4 py-1.5 mb-6 rounded-full bg-gradient-to-r from-napta-blue to-sustainable-green text-white text-xs font-bold tracking-widest"
+          >
+            KTS&E 2026
+          </motion.div>
+          
           <motion.h1 
             variants={itemVariants} 
-            className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-xl"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight px-4"
+            style={{ 
+              fontFamily: "'Poppins', sans-serif",
+              textShadow: '0 4px 12px rgba(0,0,0,0.2)'
+            }}
           >
-            Kenya Transport Summit
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">
+              Kenya Transport Summit 2026
+            </span>
           </motion.h1>
 
-          <motion.div variants={itemVariants} className="mb-8 md:mb-12 space-y-4">
+          <motion.div variants={itemVariants} className="mb-10 space-y-6">
             <p 
-              className="text-base md:text-lg font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="text-lg md:text-xl font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed"
+              style={{ 
+                fontFamily: "'Inter', sans-serif",
+                textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+              }}
             >
               Building Safe, Sustainable and Inclusive Transport Systems
             </p>
-            <p className="text-xs md:text-sm font-normal text-slate-400 uppercase tracking-[0.3em]">
-              30th Sep - 2nd Oct 2026 • KICC, Nairobi
-            </p>
+            <div className="flex flex-col items-center space-y-2">
+              <div className="w-16 h-1 bg-gradient-to-r from-napta-blue to-sustainable-green rounded-full"></div>
+              <p className="text-sm font-medium text-slate-300 uppercase tracking-[0.3em] mt-2">
+                30th Sep - 2nd Oct 2026
+              </p>
+              <p className="text-napta-blue font-semibold text-sm">KICC, Nairobi</p>
+            </div>
           </motion.div>
 
           <motion.div 
