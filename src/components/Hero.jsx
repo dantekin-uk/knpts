@@ -46,7 +46,7 @@ const Hero = ({ setPage }) => {
             className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-xl"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Kenya National Transport Summit & Expo (KNTS&E)
+            Kenya Transport Summit
           </motion.h1>
 
           <motion.div variants={itemVariants} className="mb-8 md:mb-12 space-y-4">
@@ -54,10 +54,10 @@ const Hero = ({ setPage }) => {
               className="text-base md:text-lg font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Theme: Building Safe, Sustainable and Inclusive Transport Systems for Kenya
+              Building Safe, Sustainable and Inclusive Transport Systems
             </p>
             <p className="text-xs md:text-sm font-normal text-slate-400 uppercase tracking-[0.3em]">
-              23rd – 25th September 2026
+              30th Sep - 2nd Oct 2026 • KICC, Nairobi
             </p>
           </motion.div>
 
