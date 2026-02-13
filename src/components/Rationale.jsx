@@ -1,134 +1,131 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bus, Train, Plane, Ship, Package } from 'lucide-react';
-
+import bus from '../assets/pillers/bus.jpeg';
+import rail from '../assets/pillers/train.jpeg';
+import air from '../assets/pillers/air.jpg';
+import maritime from '../assets/pillers/cago.jpeg'; 
 const Rationale = () => {
   const containerVariants = {
-    hidden: { opacity: 1 }, // Ensures layout is established immediately
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
   };
 
+  const modes = [
+    {
+      id: '01',
+      title: 'Road & Public Transport',
+      desc: 'Transforming the 47-county network through safe, inclusive PSV systems.',
+      image: bus,
+      tag: 'Urban Mobility',
+      color: 'blue'
+    },
+    {
+      id: '02',
+      title: 'Railway Transport',
+      desc: 'Expanding high-speed commuter rail and regional freight corridors.',
+      image: rail,
+      tag: 'Heavy Rail',
+      color: 'green'
+    },
+    {
+      id: '03',
+      title: 'Aviation & Air Logistics',
+      desc: 'Modernizing regional hubs to bridge the gap in global trade connectivity.',
+      image: air,
+      tag: 'Air Trade',
+      color: 'blue'
+    },
+    {
+      id: '04',
+      title: 'Maritime & Blue Economy',
+      desc: 'Optimizing port infrastructure and sustainable ferry systems.',
+      image: maritime,
+      tag: 'Marine Tech',
+      color: 'green'
+    }
+  ];
+
   return (
-    <section className="py-16 md:py-20 bg-slate-50 overflow-hidden">
-      <div className="container mx-auto px-6">
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h2 className="text-napta-blue font-bold tracking-[0.2em] text-[10px] uppercase mb-3 text-center md:text-left" style={{ fontFamily: "'Inter', sans-serif" }}>Scope of Integration</h2>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-napta-navy text-center md:text-left tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
-            The Multimodal <span className="text-sustainable-green">Ecosystem.</span>
-          </h3>
-        </motion.div>
+    <section className="py-16 bg-white overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative">
+        {/* The "Big Card" backdrop - now stretches to contain the cards */}
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-slate-50 rounded-[4rem] border border-slate-100 shadow-inner mx-4 md:mx-12 overflow-hidden">
+          {/* Subtle Background Pattern */}
+          <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#3b82f6 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          
+          {/* Modern Greenish Stripes and Staffs */}
+          <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(135deg, #10b981 0px, #10b981 1px, transparent 1px, transparent 50px)' }}></div>
+          <div className="absolute inset-0 flex justify-around opacity-[0.02] pointer-events-none px-20">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="w-px h-full bg-sustainable-green"></div>
+            ))}
+          </div>
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-sustainable-green/5 rounded-full blur-[120px] pointer-events-none"></div>
+        </div>
 
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          viewport={{ once: true, amount: 0.1 }}
+          className="relative z-10 py-12 px-8 md:px-18"
         >
+          <motion.div 
+            variants={itemVariants}
+            className="mb-12 text-center"
+          >
           
-          {/* Road & Public Transport */}
-          <motion.div 
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-            className="md:col-span-2 p-7 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:border-napta-blue/30 transition-all group relative overflow-hidden"
-          >
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <div className="w-12 h-12 bg-safety-gold/20 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <Bus className="text-amber-700 w-6 h-6" />
+            <h2 className="text-2xl md:text-3xl font-extrabold text-napta-navy leading-tight tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              The Pillars of <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">Integration.</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {modes.map((mode) => (
+              <motion.div 
+                key={mode.id}
+                variants={itemVariants}
+                whileHover={{ y: -30, scale: 1.01 }}
+                className={`group relative flex flex-col min-h-[460px] rounded-[3rem] bg-white border border-slate-100 p-5 transition-all duration-700 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] ${
+                  mode.color === 'blue' 
+                    ? 'hover:shadow-[0_40px_100px_-20px_rgba(27,93,165,0.15)] hover:border-napta-blue/20' 
+                    : 'hover:shadow-[0_40px_100px_-20px_rgba(16,185,129,0.15)] hover:border-sustainable-green/20'
+                }`}
+              >
+                {/* Top Image Section */}
+                <div className="relative h-[180px] w-full rounded-[2rem] overflow-hidden mb-6">
+                  <img 
+                    src={mode.image} 
+                    alt={mode.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
                 </div>
-                <h4 className="text-xl font-bold text-napta-navy mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>Road & Public Transport</h4>
-                <p className="text-slate-500 text-sm leading-relaxed max-w-md" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Rollout of <span className="font-semibold text-napta-blue">Safe and Inclusive</span> PSV systems and NMT infrastructure across all 47 counties.
-                </p>
-              </div>
-              <div className="mt-6">
-                <span className="px-3 py-1 bg-slate-100 rounded-full text-[9px] font-black text-slate-400 uppercase tracking-widest">Priority 01</span>
-              </div>
-            </div>
-            <Bus className="absolute -bottom-6 -right-6 w-32 h-32 opacity-[0.03] -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
-          </motion.div>
 
-          {/* Railway Transport */}
-          <motion.div 
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-            className="p-7 rounded-[2rem] bg-sustainable-green text-white shadow-lg hover:shadow-sustainable-green/20 transition-all relative overflow-hidden group"
-          >
-            <div className="relative z-10">
-              <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-5">
-                <Train className="text-white w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-bold mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>Railway</h4>
-              <p className="text-green-50/80 text-xs leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-                Progress on commuter rail and regional freight to lower logistics costs.
-              </p>
-            </div>
-            <Train className="absolute -bottom-8 -right-8 w-32 h-32 opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-700" />
-          </motion.div>
-
-          {/* Aviation */}
-          <motion.div 
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-            className="p-7 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:border-napta-blue/30 transition-all group"
-          >
-            <div className="w-11 h-11 bg-slate-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-napta-blue/10 transition-colors">
-              <Plane className="text-napta-navy group-hover:text-napta-blue w-5 h-5" />
-            </div>
-            <h4 className="text-lg font-bold text-napta-navy mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>Aviation</h4>
-            <p className="text-slate-500 text-xs leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Strengthening airport-linked mobility and regional trade connectivity.
-            </p>
-          </motion.div>
-
-          {/* Maritime */}
-          <motion.div 
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-            className="p-7 rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:border-napta-blue/30 transition-all group"
-          >
-            <div className="w-11 h-11 bg-slate-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-napta-blue/10 transition-colors">
-              <Ship className="text-napta-navy group-hover:text-napta-blue w-5 h-5" />
-            </div>
-            <h4 className="text-lg font-bold text-napta-navy mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>Maritime</h4>
-            <p className="text-slate-500 text-xs leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Optimizing port infrastructure and ferries for a resilient blue economy.
-            </p>
-          </motion.div>
-
-          {/* Freight & Logistics */}
-          <motion.div 
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-            className="p-7 rounded-[2rem] bg-napta-navy text-white shadow-lg hover:bg-slate-900 transition-all group relative overflow-hidden"
-          >
-            <div className="relative z-10">
-              <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center mb-5">
-                <Package className="text-safety-gold w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>Logistics</h4>
-              <p className="text-slate-400 text-xs leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
-                Integrating cross-border and regional cargo movement.
-              </p>
-            </div>
-            <Package className="absolute -bottom-6 -right-6 w-24 h-24 opacity-[0.05] -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
-          </motion.div>
-
+                {/* Bottom Text Section */}
+                <div className="px-6 pb-6 flex flex-col flex-1">
+                  <h4 className={`text-2xl font-bold text-napta-navy mb-4 leading-[1.2] transition-colors duration-500 ${
+                    mode.color === 'blue' ? 'group-hover:text-napta-blue' : 'group-hover:text-sustainable-green'
+                  }`}>{mode.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90">{mode.desc}</p>
+                  
+                  <div className="mt-auto pt-8">
+                    <div className={`w-12 h-[2px] bg-slate-100 group-hover:w-full transition-all duration-700 ${
+                      mode.color === 'blue' ? 'group-hover:bg-napta-blue/40' : 'group-hover:bg-sustainable-green/40'
+                    }`}></div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
-import Strategic from '../components/Strategic';
 import Rationale from '../components/Rationale';
 import FloatingDock from '../components/FloatingDock';
 import AboutSection from '../components/AboutSection';
+import Exhibition from '../components/Exhibition';
+import Involvement from '../components/Involvement';
+import Speakers from '../components/Speakers';
+import Partners from '../components/Partners';
 
 const Home = ({ setPage }) => {
   return (
@@ -16,8 +19,11 @@ const Home = ({ setPage }) => {
       <Hero setPage={setPage} />
       <FloatingDock />
       <AboutSection />
-      <Strategic />
       <Rationale />
+      <Exhibition />
+      <Speakers />
+      <Involvement />
+      <Partners />
     </motion.div>
   );
 };
