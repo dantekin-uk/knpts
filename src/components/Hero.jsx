@@ -20,7 +20,7 @@ const Hero = ({ setPage }) => {
   };
 
   return (
-    <header className="relative h-screen w-full flex items-center justify-center pt-32 pb-20 overflow-hidden">
+    <header className="relative min-h-screen w-full flex items-center justify-center pt-40 md:pt-52 pb-12 md:pb-20 overflow-hidden">
       <video
         autoPlay
         muted
@@ -32,8 +32,8 @@ const Hero = ({ setPage }) => {
         <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
       </video>
 
-      {/* Black overlay for cinematic contrast */}
-      <div className="absolute inset-0 z-[1] bg-black/50 backdrop-blur-[1px]"></div>
+      {/* Subtle top gradient overlay to improve logo visibility when navbar is transparent */}
+      <div className="absolute top-0 left-0 right-0 h-30 bg-gradient-to-r from-white/14 to-black/14 z-[0.5] pointer-events-none"></div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
@@ -44,7 +44,7 @@ const Hero = ({ setPage }) => {
           <motion.h1 
             variants={itemVariants} 
             whileHover={{ scale: 1.01 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-2xl cursor-default transition-all duration-300"
+            className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white mb-4 md:mb-6 leading-tight tracking-tight px-4 drop-shadow-2xl cursor-default transition-all duration-300"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             Kenya Transport <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">
@@ -54,12 +54,12 @@ const Hero = ({ setPage }) => {
 
           <motion.div variants={itemVariants} className="mb-8 md:mb-12 space-y-4">
             <p 
-              className="text-lg md:text-xl font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
+              className="text-base md:text-lg lg:text-xl font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Building Safe, Sustainable and Inclusive Transport Systems
             </p>
-            <p className="text-sm md:text-base font-normal text-slate-400 uppercase tracking-[0.3em]">
+            <p className="text-xs md:text-base font-normal text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em]">
               30th Sep - 2nd Oct 2026 • KICC, Nairobi
             </p>
           </motion.div>
@@ -85,9 +85,9 @@ const Hero = ({ setPage }) => {
               }}
               whileTap={{ scale: 0.97 }}
               className="px-6 py-3 bg-white/5 border border-white/20 text-white rounded-xl font-bold text-base transition-all duration-300"
-              onClick={() => setPage('Programme')}
+              onClick={() => setPage('WhyAttend')}
             >
-              View Programme
+              Why Attend the Summit?
             </motion.button>
           </motion.div>
 

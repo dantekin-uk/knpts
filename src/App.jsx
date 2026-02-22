@@ -6,7 +6,10 @@ import Programme from './pages/Programme';
 import TheExpo from './pages/Expo';
 import Registration from './pages/Registration';
 import Navbar from './components/Navbar';
+import About from './pages/About';
 import Footer from './components/Footer';
+import WhyAttend from './pages/WhyAttend';
+
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
 
@@ -20,6 +23,10 @@ function App() {
         return <TheExpo />;
       case 'Registration': 
         return <Registration />;
+      case 'About':
+        return <About setPage={setCurrentPage} />;
+      case 'WhyAttend':
+        return <WhyAttend setPage={setCurrentPage} />;
       default: 
         return <Home setPage={setCurrentPage} />;
     }

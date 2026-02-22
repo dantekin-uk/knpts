@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import bus from '../assets/pillers/bus.jpeg';
-import rail from '../assets/pillers/train.jpeg';
+import bus from '../assets/pillers/bus.jpg';
+import rail from '../assets/pillers/train.jpg';
 import air from '../assets/pillers/air.jpg';
 import maritime from '../assets/pillers/cago.jpeg'; 
 const Rationale = () => {

@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import aboutimage from '../assets/about.png';
+import { Users, Lightbulb, Target } from 'lucide-react';
 
-const AboutSection = () => {
+const AboutSection = ({ setPage }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,9 +36,12 @@ const AboutSection = () => {
         
         <div className="flex flex-col lg:flex-row gap-10 md:gap-16 mb-12 md:mb-16 items-start">
           <motion.div variants={itemVariants} className="lg:w-7/12">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-napta-navy leading-tight mb-8 tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            <div className="flex items-center gap-4 mb-6">
+              
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-napta-navy leading-[1.15] tracking-tight mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>
               From Vision <br/>
-              <span className="text-sustainable-green">to National Delivery.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green  font-light">to National Delivery.</span>
             </h2>
             
             <p className="text-slate-600 text-sm md:text-base font-normal leading-relaxed max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
@@ -61,7 +65,7 @@ const AboutSection = () => {
                 </svg>
               </div>
               <h4 className="text-sustainable-green font-bold text-xs uppercase tracking-widest mb-4">The 2026 Mandate</h4>
-              <p className="text-slate-200 leading-relaxed italic text-sm">
+              <p className="text-slate-200 leading-relaxed  text-sm">
                 "To review progress, strengthen coordination, and accelerate implementation connecting people and goods through integrated, efficient, and resilient systems across road, rail, air, and water."
               </p>
             </motion.div>
@@ -102,29 +106,52 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-slate-100">
+        <motion.div variants={itemVariants} className="mt-16 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            
+            <h3 className="text-2xl md:text-3xl font-extrabold text-napta-navy leading-tight tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              Why Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green ">2026 Summit?</span>
+            </h3>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setPage('WhyAttend')}
+            className="px-8 py-3 bg-napta-blue text-white rounded-xl font-bold text-sm shadow-lg shadow-napta-blue/20 transition-all"
+          >
+            Learn More
+          </motion.button>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-slate-100">
           
-          <motion.div variants={itemVariants} className="space-y-4">
-            <div className="w-8 h-[2px] bg-napta-blue"></div>
-            <h4 className="text-slate-900 font-black text-sm uppercase tracking-tight">The Foundation</h4>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Building on the 2025 foundation that established the first national platform for dialogue on public transport reform and stakeholder coordination.
+          <motion.div variants={itemVariants} className="group p-6 rounded-[2rem] bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-500">
+            <div className="w-10 h-10 rounded-xl bg-napta-blue/10 flex items-center justify-center text-napta-blue mb-6 group-hover:bg-napta-blue group-hover:text-white transition-colors">
+              <Users size={20} />
+            </div>
+            <h4 className="text-napta-navy font-bold text-base mb-3">Connect with Key Players</h4>
+            <p className="text-slate-600 text-sm leading-relaxed font-normal">
+              Network with decision-makers from all 47 counties, global industry leaders, and leading researchers from the University of Nairobi (IDS).
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-4">
-            <div className="w-8 h-[2px] bg-napta-blue"></div>
-            <h4 className="text-slate-900 font-black text-sm uppercase tracking-tight">Multimodal Evolution</h4>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              The 2026 scope expands to cover the entire ecosystem: Road-based public transport, NMT, Freight, Railway, Aviation, and Water transport.
+          <motion.div variants={itemVariants} className="group p-6 rounded-[2rem] bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-500">
+            <div className="w-10 h-10 rounded-xl bg-sustainable-green/10 flex items-center justify-center text-sustainable-green mb-6 group-hover:bg-sustainable-green group-hover:text-white transition-colors">
+              <Lightbulb size={20} />
+            </div>
+            <h4 className="text-napta-navy font-bold text-base mb-3">Discover Innovation</h4>
+            <p className="text-slate-600 text-sm leading-relaxed font-normal">
+              Experience the latest in electric PSVs, rolling stock, and Intelligent Transport Systems (ITS) firsthand at the Transport Expo.
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-4">
-            <div className="w-8 h-[2px] bg-napta-blue"></div>
-            <h4 className="text-slate-900 font-black text-sm uppercase tracking-tight">Strategic Collaboration</h4>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              A partnership between <span className="text-napta-blue font-bold">NAPTA</span> and the <span className="text-napta-blue font-bold">University of Nairobi (IDS)</span> ensuring evidence-based policy and accountability.
+          <motion.div variants={itemVariants} className="group p-6 rounded-[2rem] bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-500">
+            <div className="w-10 h-10 rounded-xl bg-napta-blue/10 flex items-center justify-center text-napta-blue mb-6 group-hover:bg-napta-blue group-hover:text-white transition-colors">
+              <Target size={20} />
+            </div>
+            <h4 className="text-napta-navy font-bold text-base mb-3">Shape the Future</h4>
+            <p className="text-slate-600 text-sm leading-relaxed font-normal">
+              Contribute to the National Accountability Statement and influence policy and operational recommendations for integrated transport.
             </p>
           </motion.div>
         </div>

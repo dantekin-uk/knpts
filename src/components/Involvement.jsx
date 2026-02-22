@@ -23,16 +23,16 @@ const Involvement = () => {
       title: 'Become a Delegate',
       focus: 'Strategic Participation',
       desc: 'Join national and county government leaders, regulators, and development partners in high-level plenaries. Engage in mode-specific technical sessions and research dialogues led by the University of Nairobi (IDS) to shape the national transport accountability statement.',
-      action: 'Register as Delegate',
+      action: 'Register',
       image: delegate,
-      color: 'blue'
+      color: 'green'
     },
     {
       id: '02',
       title: 'Showcase at the Expo',
       focus: 'Innovation & Market Presence',
       desc: 'Position your brand at the center of Kenya’s mobility marketplace. Showcase the latest in electric PSVs, rolling stock, aviation services, and Intelligent Transport Systems (ITS) to a concentrated audience of operators, investors, and policy makers.',
-      action: 'Book Exhibition Space',
+      action: 'Book your stand',
       image: expoimage,
       color: 'green'
     },
@@ -41,8 +41,9 @@ const Involvement = () => {
       title: 'Partner & Sponsor',
       focus: 'Leadership & Visibility',
       desc: 'Align your organization with the national agenda for safe, sustainable, and inclusive transport. Support the intermodal mission through strategic sponsorship and gain exclusive access to investor roundtables and the 2026 progress review sessions.',
-      action: 'View Partnership Tiers',
+      action: 'Get involved',
       image: partnersimage,
+      color: 'green'
     }
   ];
 
@@ -100,7 +101,13 @@ const Involvement = () => {
                   <h4 className={`text-2xl font-bold text-napta-navy mb-4 leading-[1.2] transition-colors duration-500 ${
                     option.color === 'blue' ? 'group-hover:text-napta-blue' : 'group-hover:text-sustainable-green'
                   }`}>{option.title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90">{option.desc}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90 mb-8">{option.desc}</p>
+                  
+                  <div className="mt-auto">
+                    <button className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
+                      {option.action}
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
