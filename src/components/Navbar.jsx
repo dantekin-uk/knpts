@@ -16,11 +16,18 @@ const Navbar = ({ activePage, setPage }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isSummitHovered, setIsSummitHovered] = useState(false);
   const [isMobileSummitOpen, setIsMobileSummitOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // Reset mobile sub-menu when main menu closes
@@ -31,6 +38,8 @@ const Navbar = ({ activePage, setPage }) => {
   const handleNavClick = (id) => {
     if (id === 'Summit') {
       setPage('About');
+    } else if (['Programme', 'Speakers', 'The Expo'].includes(id)) {
+      return;
     } else {
       setPage(id);
     }
@@ -43,7 +52,7 @@ const Navbar = ({ activePage, setPage }) => {
   };
 
   const isHome = activePage === 'Home';
-  const showScrolledStyle = scrolled || !isHome;
+  const showScrolledStyle = scrolled || !isHome || isMobile;
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-b h-20 md:h-24 ${
@@ -226,7 +235,12 @@ const Navbar = ({ activePage, setPage }) => {
                   className={`px-4 py-3 text-lg font-bold text-left rounded-2xl transition-colors ${
                     activePage === link.id ? 'bg-napta-blue text-white' : 'text-white/90 hover:bg-white/10'
                   }`}
-                  onClick={() => { handleNavClick(link.id); setIsOpen(false); }}
+                  onClick={() => { 
+                    if (!['Programme', 'Speakers', 'The Expo'].includes(link.id)) {
+                      handleNavClick(link.id); 
+                      setIsOpen(false); 
+                    }
+                  }}
                 >
                   {link.name}
                 </motion.button>
