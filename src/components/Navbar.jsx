@@ -79,7 +79,7 @@ const Navbar = ({ activePage, setPage }) => {
                 showScrolledStyle ? 'bg-napta-blue/20' : 'bg-white/25'
               }`}
             />
-            <img src={logo} alt="NAPTA Logo" className="h-50 md:h-60 w-auto object-contain transition-all duration-500 filter drop-shadow-md group-hover:drop-shadow-xl scale-110 origin-left flex-shrink-0" />
+            <img src={logo} alt="NAPTA Logo" className="h-32 md:h-48 w-auto object-contain transition-all duration-500 filter drop-shadow-md group-hover:drop-shadow-xl scale-110 origin-left flex-shrink-0" />
           </motion.div>
         </div>
         

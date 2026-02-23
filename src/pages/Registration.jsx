@@ -377,7 +377,7 @@ export default function Registration() {
             {step < 4 && (
               <div className="mt-8 pt-6 border-t border-white/5 text-center">
                 <p className="text-sm text-slate-500">
-                  Need help? <a href="mailto:registration@knts2026.ke" className="text-napta-blue hover:underline">Contact our support team</a>
+                  Need help? <a href="mailto:info@kenyatransportsummit.com" className="text-napta-blue hover:underline">Contact our support team</a>
                 </p>
               </div>
             )}

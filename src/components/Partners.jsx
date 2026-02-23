@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import naptalogo from '../assets/partnerslogo/napta.jpeg';
 import idslogo from '../assets/partnerslogo/ids.png';
+import drollLogo from '../assets/partnerslogo/droll.png';
 
 const Partners = () => {
   const containerVariants = {
@@ -79,7 +80,10 @@ const Partners = () => {
         <motion.div variants={itemVariants} className="pt-12 border-t border-slate-200/60">
           <p className="text-[9px] font-black text-slate-300 uppercase tracking-[0.3em] text-center mb-12">In Partnership With</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div className="h-24 flex items-center justify-center transition-all duration-500 cursor-pointer">
+               <img src={drollLogo} alt="Droll" className="h-16 md:h-24 w-auto object-contain" />
+            </div>
+            {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="h-24 flex items-center justify-center transition-all duration-500 cursor-pointer">
                 {/* Placeholder for actual logos */}
                 <div className="w-44 h-12 bg-slate-100 rounded-lg relative overflow-hidden">
