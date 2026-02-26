@@ -7,7 +7,7 @@ const navLinks = [
   { name: 'Summit', id: 'Summit' },
   { name: 'Programme', id: 'Programme' },
   { name: 'Speakers', id: 'Speakers' },
-  { name: 'The Expo & Sponsors', id: 'The Expo' },
+  { name: 'Expo & Sponsor', id: 'The Expo' },
   
 ];
 
@@ -15,7 +15,11 @@ const Navbar = ({ activePage, setPage }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isSummitHovered, setIsSummitHovered] = useState(false);
+  const [isProgrammeHovered, setIsProgrammeHovered] = useState(false);
+  const [isExpoHovered, setIsExpoHovered] = useState(false);
+  const [isMobileProgrammeOpen, setIsMobileProgrammeOpen] = useState(false);
   const [isMobileSummitOpen, setIsMobileSummitOpen] = useState(false);
+  const [isMobileExpoOpen, setIsMobileExpoOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
 
   useEffect(() => {
@@ -32,14 +36,20 @@ const Navbar = ({ activePage, setPage }) => {
 
   // Reset mobile sub-menu when main menu closes
   useEffect(() => {
-    if (!isOpen) setIsMobileSummitOpen(false);
+    if (!isOpen) {
+      setIsMobileSummitOpen(false);
+      setIsMobileProgrammeOpen(false);
+      setIsMobileExpoOpen(false);
+    }
   }, [isOpen]);
 
   const handleNavClick = (id) => {
     if (id === 'Summit') {
       setPage('About');
-    } else if (['Programme', 'Speakers', 'The Expo'].includes(id)) {
-      return;
+    } else if (id === 'Programme') {
+      setPage('Programme');
+    } else if (id === 'The Expo') {
+      setPage('TransportExpo');
     } else {
       setPage(id);
     }
@@ -48,6 +58,8 @@ const Navbar = ({ activePage, setPage }) => {
   const isLinkActive = (linkId) => {
     if (activePage === linkId) return true;
     if (linkId === 'Summit' && ['About', 'WhyAttend', 'Partners'].includes(activePage)) return true;
+    if (linkId === 'Programme' && ['Programme', 'InnovationTours', 'ExcellenceAwards', 'Networking'].includes(activePage)) return true;
+    if (linkId === 'The Expo' && ['TransportExpo', 'The Expo', 'ExhibitWithUs', 'PitchDay', 'Sponsorship'].includes(activePage)) return true;
     return false;
   };
 
@@ -79,7 +91,7 @@ const Navbar = ({ activePage, setPage }) => {
                 showScrolledStyle ? 'bg-napta-blue/20' : 'bg-white/25'
               }`}
             />
-            <img src={logo} alt="NAPTA Logo" className="h-32 md:h-48 w-auto object-contain transition-all duration-500 filter drop-shadow-md group-hover:drop-shadow-xl scale-110 origin-left flex-shrink-0" />
+            <img src={logo} alt="NAPTA Logo" className="h-60 md:h-70 w-auto object-contain transition-all duration-500 filter drop-shadow-md group-hover:drop-shadow-xl scale-110 origin-left flex-shrink-0" />
           </motion.div>
         </div>
         
@@ -89,8 +101,16 @@ const Navbar = ({ activePage, setPage }) => {
             <div 
               key={link.id}
               className="relative"
-              onMouseEnter={() => link.id === 'Summit' && setIsSummitHovered(true)}
-              onMouseLeave={() => link.id === 'Summit' && setIsSummitHovered(false)}
+              onMouseEnter={() => {
+                if (link.id === 'Summit') setIsSummitHovered(true);
+                if (link.id === 'Programme') setIsProgrammeHovered(true);
+                if (link.id === 'The Expo') setIsExpoHovered(true);
+              }}
+              onMouseLeave={() => {
+                if (link.id === 'Summit') setIsSummitHovered(false);
+                if (link.id === 'Programme') setIsProgrammeHovered(false);
+                if (link.id === 'The Expo') setIsExpoHovered(false);
+              }}
             >
               <motion.button 
                 onClick={() => handleNavClick(link.id)}
@@ -108,8 +128,12 @@ const Navbar = ({ activePage, setPage }) => {
                 >
                   {link.name}
                 </motion.span>
-                {link.id === 'Summit' && (
-                  <ChevronDown size={14} className={`transition-transform duration-300 ${isSummitHovered ? 'rotate-180' : ''}`} />
+                {(link.id === 'Summit' || link.id === 'Programme' || link.id === 'The Expo') && (
+                  <ChevronDown size={14} className={`transition-transform duration-300 ${
+                    (link.id === 'Summit' && isSummitHovered) || 
+                    (link.id === 'Programme' && isProgrammeHovered) ||
+                    (link.id === 'The Expo' && isExpoHovered) ? 'rotate-180' : ''
+                  }`} />
                 )}
 
                 <motion.div
@@ -139,8 +163,9 @@ const Navbar = ({ activePage, setPage }) => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-4 w-64 bg-napta-navy backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-white/10 overflow-hidden p-2 z-50"
+                      className="absolute top-full left-0 pt-4 w-64 z-50"
                     >
+                      <div className="bg-napta-navy backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-white/10 overflow-hidden p-2">
                       <motion.button
                         onClick={() => {
                           setPage('About');
@@ -180,6 +205,85 @@ const Navbar = ({ activePage, setPage }) => {
                         </div>
                         <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
                       </motion.button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              )}
+
+              {/* Programme Dropdown Menu */}
+              {link.id === 'Programme' && (
+                <AnimatePresence>
+                  {isProgrammeHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 pt-4 w-72 z-50"
+                    >
+                      <div className="bg-napta-navy backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-white/10 overflow-hidden p-2">
+                      {[
+                        { name: 'Full Programme', id: 'Programme' },
+                        { name: 'Innovation Guided Tours', id: 'InnovationTours' },
+                        { name: 'Excellence Awards 2026', id: 'ExcellenceAwards' },
+                        { name: 'Networking Opportunities', id: 'Networking' }
+                      ].map((subLink) => (
+                        <motion.button
+                          key={subLink.id}
+                          onClick={() => {
+                            setPage(subLink.id);
+                            setIsProgrammeHovered(false);
+                          }}
+                          whileHover={{ x: 4 }}
+                          className="group w-full text-left px-6 py-4 text-base font-bold text-white/90 hover:bg-white/10 hover:text-white rounded-2xl transition-all flex items-center justify-between"
+                        >
+                          <div className="transition-transform duration-300">
+                            {subLink.name}
+                          </div>
+                          <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
+                        </motion.button>
+                      ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              )}
+
+              {/* Expo Dropdown Menu */}
+              {link.id === 'The Expo' && (
+                <AnimatePresence>
+                  {isExpoHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 pt-4 w-80 z-50"
+                    >
+                      <div className="bg-napta-navy backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-white/10 overflow-hidden p-2">
+                      {[
+                        { name: 'The 3-Day Transport Expo', id: 'TransportExpo' },
+                        { name: 'Exhibit With Us', id: 'ExhibitWithUs' },
+                        { name: 'Summit Pitch Day', id: 'PitchDay' },
+                        { name: 'Sponsorship & Strategic Partnerships', id: 'Sponsorship' }
+                      ].map((subLink) => (
+                        <motion.button
+                          key={subLink.id}
+                          onClick={() => {
+                            setPage(subLink.id);
+                            setIsExpoHovered(false);
+                          }}
+                          whileHover={{ x: 4 }}
+                          className="group w-full text-left px-6 py-4 text-base font-bold text-white/90 hover:bg-white/10 hover:text-white rounded-2xl transition-all flex items-center justify-between"
+                        >
+                          <div className="transition-transform duration-300">
+                            {subLink.name}
+                          </div>
+                          <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
+                        </motion.button>
+                      ))}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -192,7 +296,7 @@ const Navbar = ({ activePage, setPage }) => {
         <div className="flex-1 hidden md:flex justify-end">
           <div className={`${scrolled ? '' : 'ml-4 pl-4 border-l border-slate-200/20'}`}>
             <motion.button 
-              onClick={() => {}} 
+              onClick={() => setPage('Registration')} 
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className={`px-8 py-3 rounded-xl font-bold text-base transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 ${
@@ -228,7 +332,7 @@ const Navbar = ({ activePage, setPage }) => {
             className="absolute top-full left-4 right-4 mt-2 bg-napta-navy rounded-3xl border border-white/10 md:hidden shadow-2xl max-h-[80vh] overflow-y-auto"
           >
             <div className="flex flex-col p-6 gap-2">
-              {navLinks.filter(l => l.id !== 'Summit').map((link) => (
+              {navLinks.filter(l => !['Summit', 'Programme', 'The Expo'].includes(l.id)).map((link) => (
                 <motion.button 
                   key={link.id} 
                   whileTap={{ scale: 0.98 }}
@@ -236,10 +340,8 @@ const Navbar = ({ activePage, setPage }) => {
                     activePage === link.id ? 'bg-napta-blue text-white' : 'text-white/90 hover:bg-white/10'
                   }`}
                   onClick={() => { 
-                    if (!['Programme', 'Speakers', 'The Expo'].includes(link.id)) {
-                      handleNavClick(link.id); 
-                      setIsOpen(false); 
-                    }
+                    handleNavClick(link.id); 
+                    setIsOpen(false); 
                   }}
                 >
                   {link.name}
@@ -290,9 +392,112 @@ const Navbar = ({ activePage, setPage }) => {
               </AnimatePresence>
 
               <motion.button 
+                whileTap={{ scale: 0.98 }}
+                className={`px-4 py-3 text-lg font-bold text-left rounded-2xl transition-colors flex items-center justify-between ${
+                  ['Programme', 'InnovationTours', 'ExcellenceAwards', 'Networking'].includes(activePage) ? 'text-white' : 'text-white/90'
+                }`}
+                onClick={() => setIsMobileProgrammeOpen(!isMobileProgrammeOpen)}
+              >
+                Programme
+                <ChevronDown size={20} className={`text-white/50 transition-transform duration-300 ${isMobileProgrammeOpen ? 'rotate-180' : ''}`} />
+              </motion.button>
+
+              <AnimatePresence>
+                {isMobileProgrammeOpen && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden flex flex-col pl-4 gap-1"
+                  >
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'Programme' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('Programme'); setIsOpen(false); }}
+                    >
+                      Full Programme
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'InnovationTours' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('InnovationTours'); setIsOpen(false); }}
+                    >
+                      Innovation Guided Tours
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'ExcellenceAwards' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('ExcellenceAwards'); setIsOpen(false); }}
+                    >
+                      Excellence Awards 2026
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'Networking' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('Networking'); setIsOpen(false); }}
+                    >
+                      Networking Opportunities
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <motion.button 
+                whileTap={{ scale: 0.98 }}
+                className={`px-4 py-3 text-lg font-bold text-left rounded-2xl transition-colors flex items-center justify-between ${
+                  ['TransportExpo', 'The Expo', 'ExhibitWithUs', 'PitchDay', 'Sponsorship'].includes(activePage) ? 'text-white' : 'text-white/90'
+                }`}
+                onClick={() => setIsMobileExpoOpen(!isMobileExpoOpen)}
+              >
+                Expo & Sponsor
+                <ChevronDown size={20} className={`text-white/50 transition-transform duration-300 ${isMobileExpoOpen ? 'rotate-180' : ''}`} />
+              </motion.button>
+
+              <AnimatePresence>
+                {isMobileExpoOpen && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden flex flex-col pl-4 gap-1"
+                  >
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'TransportExpo' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('TransportExpo'); setIsOpen(false); }}
+                    >
+                      The 3-Day Transport Expo
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'The Expo' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('The Expo'); setIsOpen(false); }}
+                    >
+                      The 3-Day Transport Expo
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'ExhibitWithUs' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('ExhibitWithUs'); setIsOpen(false); }}
+                    >
+                      Exhibit With Us
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'PitchDay' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('PitchDay'); setIsOpen(false); }}
+                    >
+                      Summit Pitch Day
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'Sponsorship' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('Sponsorship'); setIsOpen(false); }}
+                    >
+                      Sponsorship & Strategic Partnerships
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => { setIsOpen(false); }}
+                onClick={() => { 
+                  setPage('Registration');
+                  setIsOpen(false); 
+                }}
                 className="mt-4 w-full py-4 rounded-xl font-bold text-center shadow-xl transition-all flex items-center justify-center gap-2 bg-white text-napta-blue"
               >
                 <UserPlus size={20} />

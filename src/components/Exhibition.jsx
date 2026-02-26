@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import expoimage from '../assets/expo4.jpeg';
+import expoimage1 from '../assets/attend/discover.png';
 
-const Exhibition = () => {
+const Exhibition = ({ setPage }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -50,7 +50,7 @@ const Exhibition = () => {
                 className="text-2xl md:text-3xl font-extrabold text-napta-navy leading-tight mb-6 tracking-tight"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
-                2026 Exhibitors List <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">Now Online!</span>
+                2026 Exhibitors List <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">coming soon!</span>
               </motion.h2>
 
               <motion.div variants={itemVariants} className="space-y-6">
@@ -66,8 +66,8 @@ const Exhibition = () => {
                 variants={itemVariants}
                 className="mt-8 flex flex-col sm:flex-row items-center gap-8 pt-8 border-t border-slate-200/60"
               >
-                <button className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
-                  View the Full List of Exhibitors
+                <button onClick={() => setPage('TransportExpo')} className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
+                  Explore the Expo
                 </button>
               </motion.div>
             </div>
@@ -83,7 +83,7 @@ const Exhibition = () => {
               className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl group"
             >
               <img 
-                src={expoimage}
+                src={expoimage1}
                 alt="Exhibition Hall" 
                 className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
               />

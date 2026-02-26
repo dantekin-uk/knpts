@@ -54,9 +54,9 @@ const Footer = ({ setPage, scrollToAbout }) => {
             <ul className="space-y-4 text-sm text-slate-400">
               {[
                 { label: 'About the Summit', action: scrollToAbout },
-                { label: 'Thematic Areas', action: () => {} },
-                { label: 'Transport Expo', action: () => {} },
-                { label: 'Programme', action: () => {} }
+                { label: 'Thematic Areas', action: () => setPage('ThematicAreas') },
+                { label: 'Transport Expo', action: () => setPage('The Expo') },
+                { label: 'Programme', action: () => setPage('Programme') }
               ].map((link, i) => (
                 <li key={i}>
                   <motion.button 
@@ -76,7 +76,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
             <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-wider">Participation</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               {[
-                { label: 'Register Delegate', action: () => {} },
+                { label: 'Register Delegate', action: () => setPage('Registration') },
                 { label: 'Exhibitor Portal', href: '#' },
                 { label: 'Media Center', href: '#' },
                 { label: 'Contact Us', href: '#' }

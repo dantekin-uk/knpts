@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import speakerimage from '../assets/speaker.png';
 
-const Speakers = () => {
+const Speakers = ({ setPage }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -91,12 +91,12 @@ const Speakers = () => {
             className="order-3 lg:order-2 mt-4 lg:mt-0"
           >
             <div className="max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row items-center gap-8 pt-8 border-t border-slate-100">
-              <button className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
-                Meet the Speakers
+              <button onClick={() => setPage('Registration')} className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
+                Register Now
               </button>
-              <a href="#" className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-napta-blue transition-colors">
+              <button onClick={() => setPage('Contact')} className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-napta-blue transition-colors">
                 Become a Speaker →
-              </a>
+              </button>
             </div>
           </motion.div>
 

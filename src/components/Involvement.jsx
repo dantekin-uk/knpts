@@ -4,7 +4,7 @@ import expoimage from '../assets/expo1.png';
 import delegate from '../assets/delegate.png';
 import partnersimage from '../assets/partnerso.png';
 
-const Involvement = () => {
+const Involvement = ({ setPage }) => {
   const containerVariants = {
     hidden: {},
     visible: {
@@ -104,7 +104,7 @@ const Involvement = () => {
                   <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90 mb-8">{option.desc}</p>
                   
                   <div className="mt-auto">
-                    <button className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
+                    <button onClick={() => setPage('Registration')} className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
                       {option.action}
                     </button>
                   </div>

@@ -9,6 +9,16 @@ import Navbar from './components/Navbar';
 import About from './pages/About';
 import Footer from './components/Footer';
 import WhyAttend from './pages/WhyAttend';
+import ExcellenceAwards from './pages/ExcellenceAwards';
+import InnovationTours from './pages/InnovationTours';
+import Networking from './pages/Networking';
+import ExhibitWithUs from './pages/ExhibitWithUs';
+import PitchDay from './pages/PitchDay';
+import Sponsorship from './pages/Sponsorship';
+import TransportExpo from './pages/TransportExpo';
+import Contact from './pages/Contact';
+import PartnersPage from './pages/Partners';
+import Speakers from './pages/Speakers';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -18,15 +28,35 @@ function App() {
       case 'Home':
         return <Home setPage={setCurrentPage} />;
       case 'Programme': 
-        return <Programme />;
+        return <Programme setPage={setCurrentPage} />;
+      case 'TransportExpo':
+        return <TransportExpo setPage={setCurrentPage} />;
       case 'The Expo': 
         return <TheExpo />;
+      case 'ExhibitWithUs':
+        return <ExhibitWithUs setPage={setCurrentPage} />;
+      case 'PitchDay':
+        return <PitchDay setPage={setCurrentPage} />;
+      case 'Sponsorship':
+        return <Sponsorship setPage={setCurrentPage} />;
+      case 'Contact':
+        return <Contact setPage={setCurrentPage} />;
+      case 'Speakers':
+        return <Speakers setPage={setCurrentPage} />;
       case 'Registration': 
         return <Registration />;
       case 'About':
         return <About setPage={setCurrentPage} />;
+      case 'Partners':
+        return <PartnersPage setPage={setCurrentPage} />;
       case 'WhyAttend':
         return <WhyAttend setPage={setCurrentPage} />;
+      case 'InnovationTours':
+        return <InnovationTours setPage={setCurrentPage} />;
+      case 'ExcellenceAwards':
+        return <ExcellenceAwards setPage={setCurrentPage} />;
+      case 'Networking':
+        return <Networking setPage={setCurrentPage} />;
       default: 
         return <Home setPage={setCurrentPage} />;
     }

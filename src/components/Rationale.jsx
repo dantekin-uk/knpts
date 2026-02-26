@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import bus from '../assets/pillers/bus.jpg';
 import rail from '../assets/pillers/train.jpg';
 import air from '../assets/pillers/air.jpg';
-import maritime from '../assets/pillers/cago.jpeg'; 
-const Rationale = () => {
+import emobility from '../assets/about/emobility.png';
+import cago from '../assets/pillers/cago1.jpeg';
+import water from '../assets/pillers/water.jpeg';
+const Rationale = ({ setPage }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,7 +23,7 @@ const Rationale = () => {
   const modes = [
     {
       id: '01',
-      title: 'Road & Public Transport',
+      title: 'Public Transport',
       desc: 'Transforming the 47-county network through safe, inclusive PSV systems.',
       image: bus,
       tag: 'Urban Mobility',
@@ -37,7 +39,7 @@ const Rationale = () => {
     },
     {
       id: '03',
-      title: 'Aviation & Air Logistics',
+      title: 'Aviation',
       desc: 'Modernizing regional hubs to bridge the gap in global trade connectivity.',
       image: air,
       tag: 'Air Trade',
@@ -45,10 +47,26 @@ const Rationale = () => {
     },
     {
       id: '04',
+      title: 'Freight & Logistics',
+      desc: 'Optimizing supply chains and last-mile delivery for regional competitiveness.',
+      image: cago,
+      tag: 'Logistics',
+      color: 'green'
+    },
+    {
+      id: '05',
       title: 'Maritime & Blue Economy',
       desc: 'Optimizing port infrastructure and sustainable ferry systems.',
-      image: maritime,
+      image: water,
       tag: 'Marine Tech',
+      color: 'blue'
+    },
+    {
+      id: '06',
+      title: 'Green Energy',
+      desc: 'Accelerating the transition to low-emission and resilient transport networks.',
+      image: emobility,
+      tag: 'Sustainability',
       color: 'green'
     }
   ];
@@ -88,7 +106,7 @@ const Rationale = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {modes.map((mode) => (
               <motion.div 
                 key={mode.id}
@@ -126,6 +144,20 @@ const Rationale = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div 
+            variants={itemVariants}
+            className="mt-16 text-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setPage('Programme')}
+              className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 mx-auto"
+            >
+              View Full Programme
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

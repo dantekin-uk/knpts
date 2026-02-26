@@ -8,6 +8,7 @@ import Exhibition from '../components/Exhibition';
 import Involvement from '../components/Involvement';
 import Speakers from '../components/Speakers';
 import Partners from '../components/Partners';
+import SummitCountdown from '../components/SummitCountdown';
 
 const Home = ({ setPage }) => {
   return (
@@ -18,12 +19,13 @@ const Home = ({ setPage }) => {
     >
       <Hero setPage={setPage} />
       <FloatingDock />
-      <AboutSection />
-      <Rationale />
-      <Exhibition />
-      <Speakers />
-      <Involvement />
-      <Partners />
+      <AboutSection setPage={setPage} />
+      <Rationale setPage={setPage} />
+      <Exhibition setPage={setPage} />
+      <SummitCountdown />
+      <Speakers setPage={setPage} />
+      <Involvement setPage={setPage} />
+      <Partners setPage={setPage} />
     </motion.div>
   );
 };

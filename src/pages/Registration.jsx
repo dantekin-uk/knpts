@@ -51,14 +51,10 @@ export default function Registration() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (step < 3) {
-      setStep(step + 1);
-    } else {
-      // Submit form
-      console.log('Form submitted:', formData);
-      // Here you would typically send the data to your backend
-      setStep(4); // Success step
-    }
+    // Submit form
+    console.log('Form submitted:', formData);
+    // Here you would typically send the data to your backend
+    setStep(3); // Success step
   };
 
   return (
@@ -69,8 +65,8 @@ export default function Registration() {
           <div className="h-1 bg-slate-100">
             <motion.div 
               className="h-full bg-napta-blue"
-              initial={{ width: step === 1 ? '33%' : step === 2 ? '66%' : '100%' }}
-              animate={{ width: step === 1 ? '33%' : step === 2 ? '66%' : '100%' }}
+              initial={{ width: step === 1 ? '50%' : '100%' }}
+              animate={{ width: step === 1 ? '50%' : '100%' }}
               transition={{ duration: 0.3 }}
             />
           </div>
@@ -215,88 +211,7 @@ export default function Registration() {
                         placeholder="Accessibility needs, dietary restrictions, etc."
                       />
                     </div>
-                  </div>
-                  
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      className="w-full bg-napta-blue text-white py-4 rounded-xl font-bold hover:bg-napta-navy transition-colors flex items-center justify-center gap-2"
-                    >
-                      Continue to Payment <ChevronRight size={18} />
-                    </button>
-                  </div>
-                </motion.form>
-              )}
 
-              {step === 3 && (
-                <motion.div
-                  key="step3"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
-                >
-                  <div>
-                    <button
-                      type="button"
-                      onClick={() => setStep(2)}
-                      className="flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-6 transition-colors"
-                    >
-                      <ArrowLeft size={16} /> Back
-                    </button>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Payment Information</h2>
-                    <p className="text-slate-600">Complete your registration with a secure payment</p>
-                  </div>
-                  
-                  <div className="bg-slate-50 p-6 rounded-2xl mb-6 border border-slate-100">
-                    <h3 className="font-bold text-slate-900 mb-4">Registration Fee</h3>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-slate-600">Standard Pass</span>
-                        <span className="font-medium text-slate-900">$199</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-slate-600">VAT (16%)</span>
-                        <span className="font-medium text-slate-900">$31.84</span>
-                      </div>
-                      <div className="border-t border-slate-200 pt-3 mt-3">
-                        <div className="flex justify-between">
-                          <span className="font-bold text-slate-900">Total</span>
-                          <span className="font-bold text-napta-blue">$230.84</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-600 mb-1">Card Number</label>
-                      <input
-                        type="text"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none font-mono"
-                        placeholder="1234 5678 9012 3456"
-                      />
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-slate-600 mb-1">Expiry Date</label>
-                        <input
-                          type="text"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
-                          placeholder="MM/YY"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-slate-600 mb-1">CVC</label>
-                        <input
-                          type="text"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
-                          placeholder="123"
-                        />
-                      </div>
-                    </div>
-                    
                     <div className="flex items-start gap-2 mt-6">
                       <input type="checkbox" id="terms" className="mt-1" required />
                       <label htmlFor="terms" className="text-sm text-slate-400">
@@ -306,28 +221,20 @@ export default function Registration() {
                     </div>
                   </div>
                   
-                  <div className="pt-4 space-y-3">
+                  <div className="pt-4">
                     <button
-                      type="button"
-                      onClick={handleSubmit}
-                      className="w-full bg-napta-blue text-white py-4 rounded-xl font-bold hover:bg-napta-navy transition-colors"
+                      type="submit"
+                      className="w-full bg-napta-blue text-white py-4 rounded-xl font-bold hover:bg-napta-navy transition-colors flex items-center justify-center gap-2"
                     >
-                      Complete Registration
+                      Complete Registration <ChevronRight size={18} />
                     </button>
-                    <div className="flex items-center gap-2 text-xs text-slate-500 justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                      </svg>
-                      Payments are secure and encrypted
-                    </div>
                   </div>
-                </motion.div>
+                </motion.form>
               )}
-              
-              {step === 4 && (
+
+              {step === 3 && (
                 <motion.div
-                  key="step4"
+                  key="step3"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
@@ -374,7 +281,7 @@ export default function Registration() {
               )}
             </AnimatePresence>
             
-            {step < 4 && (
+            {step < 3 && (
               <div className="mt-8 pt-6 border-t border-white/5 text-center">
                 <p className="text-sm text-slate-500">
                   Need help? <a href="mailto:info@kenyatransportsummit.com" className="text-napta-blue hover:underline">Contact our support team</a>
