@@ -4,7 +4,7 @@ import { ArrowRight, Truck, Train, Plane, Ship, Cpu, ShieldCheck, Lightbulb, Foo
 import discoverimage from '../assets/attend/discover.png';
 import inovationimage from '../assets/attend/inovation.png';
 import whyattendimage from '../assets/attend/whyattend.png';
-import aboutimage from '../assets/about/about.png';
+import aboutimage from '../assets/about.png';
 
 const TransportExpo = ({ setPage }) => {
   useEffect(() => {
@@ -96,7 +96,7 @@ const TransportExpo = ({ setPage }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group"
                 >
                   Secure Attendee Pass
@@ -115,11 +115,11 @@ const TransportExpo = ({ setPage }) => {
             </motion.div>
             <motion.div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[560px]" initial="hidden" animate="visible" variants={containerVariants}>
               <motion.div variants={itemVariants} style={{ y: y1 }} className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]">
-                <img src={discoverimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Expo Floor" />
+                <img src={discoverimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Expo Floor" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div variants={itemVariants} style={{ y: y2 }} className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]">
-                <img src={inovationimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Innovation" />
+                <img src={inovationimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Innovation" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -209,7 +209,7 @@ const TransportExpo = ({ setPage }) => {
                   className="group relative flex flex-col min-h-[360px] rounded-[2.5rem] bg-white border border-slate-100 p-3 transition-all duration-700 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_70px_-20px_rgba(27,93,165,0.15)] hover:border-napta-blue/20"
                 >
                   <div className="relative h-[120px] w-full rounded-[2rem] overflow-hidden mb-4">
-                    <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" decoding="async" />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 opacity-60"></div>
                   </div>
                   <div className="px-3 pb-3 flex flex-col flex-1">
@@ -254,7 +254,7 @@ const TransportExpo = ({ setPage }) => {
             </div>
             <div className="lg:w-1/2">
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white">
-                <img src={discoverimage} alt="Exhibitors" className="w-full h-[350px] object-cover" />
+                <img src={discoverimage} alt="Exhibitors" className="w-full h-[350px] object-cover" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -294,7 +294,7 @@ const TransportExpo = ({ setPage }) => {
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-                onClick={() => setPage('Registration')}
+                onClick={() => setPage('Contact')}
                 className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
               >
                 Secure an Attendee Pass

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Trophy, Star, ShieldCheck, Zap, Users, Building2, ArrowRight, Award, Gavel, Crown, Briefcase, Globe, FileText } from 'lucide-react';
-import aboutimage from '../assets/about/about.png';
+import aboutimage from '../assets/about.png';
 import whyattendimage from '../assets/attend/whyattend.png';
 import excelenceimage from '../assets/program/excelence.jpg';
 import excelenceimage2 from '../assets/program/excelence1.jpg';
@@ -106,7 +106,7 @@ const ExcellenceAwards = ({ setPage }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group"
                 >
                   Register Now
@@ -126,7 +126,7 @@ const ExcellenceAwards = ({ setPage }) => {
                 style={{ y: y1 }}
                 className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]"
               >
-                <img src={excelenceimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Gala Dinner" />
+                <img src={excelenceimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Gala Dinner" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div 
@@ -134,7 +134,7 @@ const ExcellenceAwards = ({ setPage }) => {
                 style={{ y: y2 }}
                 className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]"
               >
-                <img src={aboutimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Award Trophy" />
+                <img src={aboutimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Award Trophy" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -163,7 +163,7 @@ const ExcellenceAwards = ({ setPage }) => {
                   transition={{ duration: 0.8 }}
                   className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10"
                 >
-                  <img src={excelenceimage2} alt="Celebrating Delivery" className="w-full h-[250px] object-cover" />
+                  <img src={excelenceimage2} alt="Celebrating Delivery" className="w-full h-[250px] object-cover" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60"></div>
                 </motion.div>
               </div>
@@ -283,7 +283,7 @@ const ExcellenceAwards = ({ setPage }) => {
                   variants={itemVariants}
                   className="mt-8 flex flex-col sm:flex-row items-center gap-8 pt-8 border-t border-slate-200/60"
                 >
-                  <button onClick={() => setPage('Registration')} className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
+                  <button onClick={() => setPage('Contact')} className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
                     Register Now
                   </button>
                 </motion.div>
@@ -303,6 +303,8 @@ const ExcellenceAwards = ({ setPage }) => {
                   src={whyattendimage}
                   alt="VIP Gala Dinner" 
                   className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
@@ -332,7 +334,7 @@ const ExcellenceAwards = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
                 >
                   Submit a Nomination
@@ -342,7 +344,7 @@ const ExcellenceAwards = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
                 >
                   Reserve a VIP Table

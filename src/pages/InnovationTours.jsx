@@ -112,7 +112,7 @@ const InnovationTours = ({ setPage }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group"
                 >
                   Register Now
@@ -132,7 +132,7 @@ const InnovationTours = ({ setPage }) => {
                 style={{ y: y1 }}
                 className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]"
               >
-                <img src={innovationimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Expo Floor" />
+                <img src={innovationimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Expo Floor" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div 
@@ -140,7 +140,7 @@ const InnovationTours = ({ setPage }) => {
                 style={{ y: y2 }}
                 className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]"
               >
-                <img src={statupimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Innovation" />
+                <img src={statupimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Innovation" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -175,6 +175,8 @@ const InnovationTours = ({ setPage }) => {
                     src={innovationimage}
                     alt="Innovation Guided Tour" 
                     className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60"></div>
                 </motion.div>
@@ -246,6 +248,8 @@ const InnovationTours = ({ setPage }) => {
                       src={item.image} 
                       alt={item.title} 
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 opacity-60"></div>
                   </div>
@@ -344,7 +348,7 @@ const InnovationTours = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
                 >
                   Secure Your Delegate Pass to Attend

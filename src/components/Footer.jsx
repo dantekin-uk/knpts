@@ -44,7 +44,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
               <div className="flex items-center gap-4">
                 <span className="text-xs font-black text-napta-blue">NAPTA KENYA</span>
                 <div className="h-3 w-[1px] bg-white/20"></div>
-                <span className="text-xs font-black text-slate-500">IDS, UNIVERSITY OF NAIROBI</span>
+                <span className="text-xs font-black text-slate-500">IDS, UNIVERSITY OF NAIROBI & DROLL ALFA </span>
               </div>
             </div>
           </div>
@@ -53,9 +53,9 @@ const Footer = ({ setPage, scrollToAbout }) => {
             <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-wider">Summit</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               {[
-                { label: 'About the Summit', action: scrollToAbout },
-                { label: 'Thematic Areas', action: () => setPage('ThematicAreas') },
-                { label: 'Transport Expo', action: () => setPage('The Expo') },
+                { label: 'About the Summit', action: () => setPage('About') },
+                { label: 'Why Attend', action: () => setPage('WhyAttend') },
+                { label: 'Partners', action: () => setPage('Partners') },
                 { label: 'Programme', action: () => setPage('Programme') }
               ].map((link, i) => (
                 <li key={i}>
@@ -76,10 +76,10 @@ const Footer = ({ setPage, scrollToAbout }) => {
             <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-wider">Participation</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               {[
-                { label: 'Register Delegate', action: () => setPage('Registration') },
-                { label: 'Exhibitor Portal', href: '#' },
-                { label: 'Media Center', href: '#' },
-                { label: 'Contact Us', href: '#' }
+                { label: 'Register Delegate', action: () => setPage('Contact') },
+                { label: 'Exhibit With Us', action: () => setPage('ExhibitWithUs') },
+                { label: 'Pitch Day', action: () => setPage('PitchDay') },
+                { label: 'Contact Us', action: () => setPage('Contact') }
               ].map((link, i) => (
                 <li key={i}>
                   {link.action ? (

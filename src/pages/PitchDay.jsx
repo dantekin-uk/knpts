@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Rocket, DollarSign, Lightbulb, Globe, Briefcase, Zap, Cpu, ShieldCheck, Users, Building2, ArrowRight, FileText, CheckCircle2 } from 'lucide-react';
+import { Rocket, DollarSign, Lightbulb, Globe, Briefcase, Zap, Cpu, ShieldCheck, Users, Building2, ArrowRight, FileText, CheckCircle2, Smartphone, TrendingUp, Truck } from 'lucide-react';
 import inovationimage from '../assets/attend/inovation.png';
 import discoverimage from '../assets/attend/discover.png';
 import whyattendimage from '../assets/attend/whyattend.png';
-import aboutimage from '../assets/about/about.png';
 
 const PitchDay = ({ setPage }) => {
   useEffect(() => {
@@ -61,11 +60,6 @@ const PitchDay = ({ setPage }) => {
     { id: "05", title: "The Deal Rooms", desc: "Move off-stage to negotiate term sheets and pilot contracts." }
   ];
 
-  // Re-importing missing icons for the verticals
-  function Smartphone(props) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>; }
-  function TrendingUp(props) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 16 8.5 11 2 18"/><polyline points="16 7 22 7 22 13"/></svg>; }
-  function Truck(props) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-4-4h-3v10a1 1 0 0 0 1 1h2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>; }
-
   return (
     <div className="min-h-screen bg-white">
       <header className="relative pt-44 lg:pt-52 pb-12 bg-white overflow-hidden">
@@ -73,11 +67,7 @@ const PitchDay = ({ setPage }) => {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <motion.div className="w-full lg:w-1/2" variants={containerVariants} initial="hidden" animate="visible">
               <motion.div variants={itemVariants} className="inline-flex items-center gap-3 mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sustainable-green opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-sustainable-green"></span>
-                </span>
-                <span className="text-napta-blue font-bold tracking-[0.3em] text-[10px] uppercase">The Silicon Savannah Secures Capital</span>
+                
               </motion.div>
               <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-4xl font-bold text-napta-navy leading-[1.15] tracking-tight mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 The 2026 <br/>
@@ -87,11 +77,11 @@ const PitchDay = ({ setPage }) => {
                 Where Transport Innovation Meets Institutional Capital. Step into East Africa’s most exclusive deal-making platform connecting agile startups directly with global VCs and government procurement teams.
               </motion.p>
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
                   Apply to Pitch
                   <Rocket size={18} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-                <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
                   Register as an Investor
                   <Users size={18} className="group-hover:scale-110 transition-transform" />
                 </motion.button>
@@ -99,11 +89,11 @@ const PitchDay = ({ setPage }) => {
             </motion.div>
             <motion.div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[560px]" initial="hidden" animate="visible" variants={containerVariants}>
               <motion.div variants={itemVariants} style={{ y: y1 }} className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]">
-                <img src={inovationimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Pitch" />
+                <img src={inovationimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Pitch" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div variants={itemVariants} style={{ y: y2 }} className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]">
-                <img src={discoverimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Investors" />
+                <img src={discoverimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Investors" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -131,7 +121,7 @@ const PitchDay = ({ setPage }) => {
                   transition={{ duration: 0.8 }}
                   className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10"
                 >
-                  <img src={whyattendimage} alt="Accelerating the Ecosystem" className="w-full h-[250px] object-cover" />
+                  <img src={whyattendimage} alt="Accelerating the Ecosystem" className="w-full h-[250px] object-cover" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60"></div>
                 </motion.div>
               </div>
@@ -253,7 +243,7 @@ const PitchDay = ({ setPage }) => {
               Applications for the 2026 Summit Pitch Day close on August 1st, 2026. Do not miss the opportunity to scale your solution across East Africa’s transport network.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group">
+              <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group">
                 Submit Your Pitch Deck
                 <FileText size={20} />
               </motion.button>

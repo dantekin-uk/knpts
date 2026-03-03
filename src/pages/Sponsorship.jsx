@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Users, Crown, Star, Gem, Award, Target, Trophy, Rocket, Coffee, CreditCard, FileText, Globe, Zap, Building2, Briefcase } from 'lucide-react';
-import aboutimage from '../assets/about/about.png';
+import aboutimage from '../assets/about.png';
 import discoverimage from '../assets/attend/discover.png';
-import whyattendimage from '../assets/attend/whyattend.png';
-import inovationimage from '../assets/attend/inovation.png';
 
 const Sponsorship = ({ setPage }) => {
   useEffect(() => {
@@ -94,7 +92,7 @@ const Sponsorship = ({ setPage }) => {
                 Align Your Brand with the Future of African Mobility. The Kenya Transport Summit & Expo (KTSE) 2026 is the ultimate convergence of public policy and private capital.
               </motion.p>
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => window.print()} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
                   Download Sponsorship Deck
                   <FileText size={18} className="group-hover:scale-110 transition-transform" />
                 </motion.button>
@@ -106,11 +104,11 @@ const Sponsorship = ({ setPage }) => {
             </motion.div>
             <motion.div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[560px]" initial="hidden" animate="visible" variants={containerVariants}>
               <motion.div variants={itemVariants} style={{ y: y1 }} className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]">
-                <img src={aboutimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Partnership" />
+                <img src={aboutimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Partnership" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div variants={itemVariants} style={{ y: y2 }} className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]">
-                <img src={discoverimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Visibility" />
+                <img src={discoverimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Visibility" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -263,6 +261,7 @@ const Sponsorship = ({ setPage }) => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.button 
+                  onClick={() => window.print()}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
@@ -274,7 +273,7 @@ const Sponsorship = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
                 >
                   Register Now
@@ -284,6 +283,71 @@ const Sponsorship = ({ setPage }) => {
           </div>
         </div>
       </section>
+
+      {/* Print-specific Styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media print {
+          nav, footer, .no-print, button, .cta-section, header, section { display: none !important; }
+          .min-h-screen { min-height: auto !important; padding-top: 0 !important; }
+          body { background: white !important; color: black !important; }
+          .prospectus-print { display: block !important; }
+        }
+      `}} />
+
+      {/* Print-only Prospectus Content */}
+      <div className="hidden prospectus-print p-12 text-napta-navy">
+        <div className="border-b-4 border-napta-blue pb-8 mb-12">
+          <h1 className="text-4xl font-black mb-2">KENYA TRANSPORT SUMMIT & EXPO 2026</h1>
+          <p className="text-xl font-bold text-sustainable-green tracking-widest uppercase">Sponsorship Prospectus</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-12 mb-12">
+          <div>
+            <h2 className="text-2xl font-bold mb-4 border-l-4 border-napta-blue pl-4">Partnership Overview</h2>
+            <p className="text-slate-700 leading-relaxed">
+              Align Your Brand with the Future of African Mobility. KTSE 2026 is the ultimate convergence of public policy and private capital.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4 border-l-4 border-sustainable-green pl-4">Key Details</h2>
+            <ul className="space-y-2 text-slate-700 font-bold">
+              <li>Date: September 30th – October 2nd, 2026</li>
+              <li>Venue: KICC, Nairobi, Kenya</li>
+              <li>Expected Attendance: 2,000+ Delegates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 border-l-4 border-napta-blue pl-4">Strategic Tiers</h2>
+          <div className="grid grid-cols-3 gap-4">
+            {['Diamond & Headline Partner', 'Platinum Strategic Partners', 'Sector Spotlight Partners'].map(tier => (
+              <div key={tier} className="p-4 bg-slate-50 rounded-xl border border-slate-200 font-bold text-center text-sm">
+                {tier}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 border-l-4 border-sustainable-green pl-4">Value Proposition</h2>
+          <div className="space-y-4">
+            <p className="font-bold">01. Unprecedented Access</p>
+            <p className="text-slate-600 text-sm mb-4">Gain direct, VIP access to the Ministry of Roads and Transport and state regulatory agencies.</p>
+            
+            <p className="font-bold">02. Thought Leadership</p>
+            <p className="text-slate-600 text-sm mb-4">Secure main-stage keynote speaking slots or moderate strategic plenary panels.</p>
+            
+            <p className="font-bold">03. High-Probability Deal Flow</p>
+            <p className="text-slate-600 text-sm">Utilize B2B deal rooms to engage in closed-door negotiations with DFIs and global infrastructure funds.</p>
+          </div>
+        </div>
+
+        <div className="mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-xs">
+          <p>© 2026 Kenya Transport Summit & Expo. All Rights Reserved.</p>
+          <p>www.kenyatransportsummit.com | partnerships@kenyatransportsummit.com</p>
+        </div>
+      </div>
     </div>
   );
 };

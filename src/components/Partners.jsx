@@ -89,7 +89,7 @@ const Partners = ({ setPage }) => {
             <div className="flex justify-center items-center">
               <div className="group flex flex-col items-center">
                 <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={naptalogo} alt="NAPTA" className="max-h-full max-w-full object-contain transition-all duration-500" />
+                   <img src={naptalogo} alt="NAPTA" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
                 <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">National Alliance</span>
               </div>
@@ -102,14 +102,14 @@ const Partners = ({ setPage }) => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
               <div className="group flex flex-col items-center">
                 <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-full object-contain transition-all duration-500" />
+                   <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
                 <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">Academic Partner</span>
               </div>
 
               <div className="group flex flex-col items-center">
                 <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={drollLogo} alt="Droll" className="max-h-full max-w-full object-contain transition-all duration-500" />
+                   <img src={drollLogo} alt="Droll" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
                 <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">Technology Partner</span>
               </div>
@@ -129,7 +129,7 @@ const Partners = ({ setPage }) => {
                 {/* Render logos twice for seamless loop */}
                 {[...partnerLogos, ...partnerLogos].map((logo, index) => (
                   <div key={index} className="h-16 w-44 flex-shrink-0 flex items-center justify-center hover:-translate-y-2 hover:scale-110 transition-all duration-500 cursor-pointer group">
-                    <img src={logo} alt={`Partner ${index + 1}`} className="max-h-full max-w-full object-contain transition-all duration-500" />
+                    <img src={logo} alt={`Partner ${index + 1}`} className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                   </div>
                 ))}
               </div>

@@ -47,6 +47,8 @@ const Speakers = ({ setPage }) => {
                 src={speakerimage} 
                 alt="High-Level Speakers" 
                 className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
             </motion.div>
@@ -91,7 +93,7 @@ const Speakers = ({ setPage }) => {
             className="order-3 lg:order-2 mt-4 lg:mt-0"
           >
             <div className="max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row items-center gap-8 pt-8 border-t border-slate-100">
-              <button onClick={() => setPage('Registration')} className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
+              <button onClick={() => setPage('Contact')} className="w-full sm:w-auto px-8 py-3 bg-napta-blue text-white font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-napta-navy transition-all shadow-lg shadow-napta-blue/10">
                 Register Now
               </button>
               <button onClick={() => setPage('Contact')} className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-napta-blue transition-colors">

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import bus from '../assets/pillers/bus.jpg';
 import rail from '../assets/pillers/train.jpg';
 import air from '../assets/pillers/air.jpg';
-import emobility from '../assets/about/emobility.png';
-import cago from '../assets/pillers/cago1.jpeg';
-import water from '../assets/pillers/water.jpeg';
+import financial from '../assets/pillers/finance.jpg';
+import cago from '../assets/pillers/cago.jpg';
+import water from '../assets/pillers/water.jpg';
 const Rationale = ({ setPage }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,32 +23,32 @@ const Rationale = ({ setPage }) => {
   const modes = [
     {
       id: '01',
-      title: 'Public Transport',
-      desc: 'Transforming the 47-county network through safe, inclusive PSV systems.',
+      title: 'Public Transport & E-Mobility',
+      desc: 'Transforming the 47-county network through safe, inclusive, and modernized PSV systems. By accelerating the adoption of e-mobility and electric buses in public transport, we are driving the transition toward a cleaner, more sustainable transit future for all communities.',
       image: bus,
       tag: 'Urban Mobility',
       color: 'blue'
     },
     {
+      id: '06',
+      title: 'Financing & Investment Opportunities',
+      desc: 'Discover lucrative investment pathways in Kenya’s expanding transport sector. Join key stakeholders to fund sustainable mobility through asset financing, Public-Private Partnerships (PPPs), and global climate funds.',
+      image: financial,
+      tag: 'Sustainability',
+      color: 'green'
+    },
+    {
       id: '02',
       title: 'Railway Transport',
-      desc: 'Expanding high-speed commuter rail and regional freight corridors.',
+      desc: 'Discover transformative investment opportunities in Kenya\'s railway sector. Join key stakeholders in expanding high-speed commuter rail and regional freight corridors to drive seamless, sustainable connectivity.',
       image: rail,
       tag: 'Heavy Rail',
       color: 'green'
     },
     {
-      id: '03',
-      title: 'Aviation',
-      desc: 'Modernizing regional hubs to bridge the gap in global trade connectivity.',
-      image: air,
-      tag: 'Air Trade',
-      color: 'blue'
-    },
-    {
       id: '04',
       title: 'Freight & Logistics',
-      desc: 'Optimizing supply chains and last-mile delivery for regional competitiveness.',
+      desc: 'Explore lucrative investment pathways in Kenya\'s freight ecosystem. Join industry leaders in optimizing supply chains and last-mile delivery for enhanced regional competitiveness and efficiency.',
       image: cago,
       tag: 'Logistics',
       color: 'green'
@@ -56,18 +56,18 @@ const Rationale = ({ setPage }) => {
     {
       id: '05',
       title: 'Maritime & Blue Economy',
-      desc: 'Optimizing port infrastructure and sustainable ferry systems.',
+      desc: 'Discover transformative opportunities in Kenya\'s maritime sector. Connect with key stakeholders to drive blue economy growth by optimizing port infrastructure and sustainable ferry systems.',
       image: water,
       tag: 'Marine Tech',
       color: 'blue'
     },
     {
-      id: '06',
-      title: 'Green Energy',
-      desc: 'Accelerating the transition to low-emission and resilient transport networks.',
-      image: emobility,
-      tag: 'Sustainability',
-      color: 'green'
+      id: '03',
+      title: 'Aviation',
+      desc: 'Discover high-impact investment opportunities in Kenya\'s aviation sector. Connect with key stakeholders to fund the expansion of air cargo facilities and passenger terminals, modernizing regional hubs to bridge the gap in global trade connectivity and drive economic growth.',
+      image: air,
+      tag: 'Air Trade',
+      color: 'blue'
     }
   ];
 
@@ -112,18 +112,20 @@ const Rationale = ({ setPage }) => {
                 key={mode.id}
                 variants={itemVariants}
                 whileHover={{ y: -30, scale: 1.01 }}
-                className={`group relative flex flex-col min-h-[460px] rounded-[3rem] bg-white border border-slate-100 p-5 transition-all duration-700 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] ${
+                className={`group relative flex flex-col min-h-[400px] rounded-[3rem] bg-white border border-slate-100 p-5 transition-all duration-700 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] ${
                   mode.color === 'blue' 
                     ? 'hover:shadow-[0_40px_100px_-20px_rgba(27,93,165,0.15)] hover:border-napta-blue/20' 
                     : 'hover:shadow-[0_40px_100px_-20px_rgba(16,185,129,0.15)] hover:border-sustainable-green/20'
                 }`}
               >
                 {/* Top Image Section */}
-                <div className="relative h-[180px] w-full rounded-[2rem] overflow-hidden mb-6">
+                <div className="relative h-[140px] w-full rounded-[2rem] overflow-hidden mb-4">
                   <img 
                     src={mode.image} 
                     alt={mode.title} 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
                 </div>
@@ -135,7 +137,7 @@ const Rationale = ({ setPage }) => {
                   }`}>{mode.title}</h4>
                   <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90">{mode.desc}</p>
                   
-                  <div className="mt-auto pt-8">
+                  <div className="mt-auto pt-4">
                     <div className={`w-12 h-[2px] bg-slate-100 group-hover:w-full transition-all duration-700 ${
                       mode.color === 'blue' ? 'group-hover:bg-napta-blue/40' : 'group-hover:bg-sustainable-green/40'
                     }`}></div>

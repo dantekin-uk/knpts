@@ -4,6 +4,8 @@ import { Calendar, MapPin, Clock, ArrowRight, FileText, Building2, Zap, DollarSi
 import programimage from '../assets/program/program.jpg';
 import heroimage from '../assets/program/innovation1.jpg';
 
+
+
 export default function Programme({ setPage }) {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -149,7 +151,7 @@ export default function Programme({ setPage }) {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group"
                 >
                   Register Now
@@ -158,7 +160,7 @@ export default function Programme({ setPage }) {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Home')}
+                  onClick={() => setPage('Speakers')}
                   className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
                 >
                   View Speakers
@@ -178,7 +180,8 @@ export default function Programme({ setPage }) {
                 style={{ y: y1 }}
                 className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]"
               >
-                <img src={programimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Summit" />
+                
+                <img src={programimage} className="w-full h-[290px] sm:h-[370px] lg:h-[460px] object-cover" alt="Summit" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div 
@@ -186,7 +189,7 @@ export default function Programme({ setPage }) {
                 style={{ y: y2 }}
                 className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]"
               >
-                <img src={heroimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Dialogue" />
+                <img src={heroimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Dialogue" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -389,7 +392,7 @@ export default function Programme({ setPage }) {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
+                  onClick={() => setPage('Contact')}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
                 >
                   Secure Delegate Pass

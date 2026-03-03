@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Plane, Train, Ship, Bus, Package, Footprints, FileText, ArrowRight, MapPin, Layers, Calendar } from 'lucide-react';
+import { Plane, Train, Ship, Bus, Package, Footprints, FileText, ArrowRight, MapPin, Layers, Calendar, DollarSign } from 'lucide-react';
 import naptalogo from '../assets/partnerslogo/napta.jpeg';
 import idslogo from '../assets/partnerslogo/ids.png';
+import drollLogo from '../assets/partnerslogo/droll.png';
 import emobility from '../assets/about/emobility.png';
 import equality from '../assets/about/equality.png';
 import safety from '../assets/about/safety.png';
 import whyimage from '../assets/about/mobility.png';
-import aboutimage from '../assets/about/about.png' ;
+import aboutimage from '../assets/about.png';
+import brochure from '../assets/brochure.pdf';
+
 const About = ({ setPage }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,9 +36,21 @@ const About = ({ setPage }) => {
 
   const ecosystem = [
     {
-      icon: Plane,
-      title: "Aviation",
-      desc: "Airport expansion, modernization, and airport-linked urban mobility. Kenya serves as a regional hub for passenger and cargo markets.",
+      icon: Bus,
+      title: "Public Transport & E-Mobility",
+      desc: "Reforming city systems through BRT, fleet electrification, and digital fare collection systems.",
+      color: "green"
+    },
+    {
+      icon: Footprints,
+      title: "Non-Motorised",
+      desc: "Inclusive walking and cycling infrastructure designed for safety and climate-resilient mobility.",
+      color: "green"
+    },
+    {
+      icon: DollarSign,
+      title: "Financing & Investment",
+      desc: "Discover lucrative investment pathways in Kenya’s expanding transport sector. Join key stakeholders to fund sustainable mobility through asset financing, Public-Private Partnerships (PPPs), and global climate funds.",
       color: "blue"
     },
     {
@@ -51,22 +66,16 @@ const About = ({ setPage }) => {
       color: "blue"
     },
     {
-      icon: Bus,
-      title: "Public Transport",
-      desc: "Reforming city systems through BRT, fleet electrification, and digital fare collection systems.",
-      color: "green"
-    },
-    {
       icon: Package,
       title: "Freight & Logistics",
       desc: "Logistics parks, dry ports, and last-mile delivery solutions essential for regional competitiveness.",
       color: "blue"
     },
     {
-      icon: Footprints,
-      title: "Non-Motorised",
-      desc: "Inclusive walking and cycling infrastructure designed for safety and climate-resilient mobility.",
-      color: "green"
+      icon: Plane,
+      title: "Aviation",
+      desc: "Airport expansion, modernization, and airport-linked urban mobility. Kenya serves as a regional hub for passenger and cargo markets.",
+      color: "blue"
     }
   ];
 
@@ -179,6 +188,7 @@ const About = ({ setPage }) => {
                   src={aboutimage} 
                   alt="Kenya Transport Infrastructure" 
                   className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover hover:scale-105 transition-transform duration-700"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
@@ -193,6 +203,7 @@ const About = ({ setPage }) => {
                   src={emobility} 
                   alt="Nairobi Mobility" 
                   className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover hover:scale-105 transition-transform duration-700"
+                  fetchPriority="high"
                 />
               </motion.div>
 
@@ -237,7 +248,7 @@ const About = ({ setPage }) => {
                   We have expanded the conversation beyond just city buses to cover the entire transport landscape: <span className="text-napta-navy font-medium ">aviation, rail, marine, freight, and non-motorized transport.</span>
                 </motion.p>
                 <motion.p variants={itemVariants}>
-                  KTSE 2026 serves as a <span className="text-napta-blue font-bold">national accountability and delivery platform</span>—a single space where policy meets projects, and projects meet capital.
+                  KTSE 2026 serves as a <span className="text-napta-blue font-bold">national accountability and delivery platform</span> a single space where policy meets projects, and projects meet capital.
                 </motion.p>
               </div>
             </motion.div>
@@ -379,6 +390,8 @@ const About = ({ setPage }) => {
                     src={whyimage}
                     alt="Kenya Logistics" 
                     className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60"></div>
                 </motion.div>
@@ -439,7 +452,9 @@ const About = ({ setPage }) => {
                   <img 
                     src={pillar.image} 
                     alt={pillar.title} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-80"></div>
                   
@@ -501,24 +516,26 @@ const About = ({ setPage }) => {
                 Join the national platform where vision meets implementation. Secure your place at the 2026 Summit and help define the next chapter of regional connectivity.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage && setPage('Registration')}
-                  className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
+                  onClick={() => setPage && setPage('Contact')}
+                  className="btn-large-mobile bg-napta-blue text-white rounded-2xl font-bold shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group w-full sm:w-auto"
                 >
                   Register Now
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
                 
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
-                >
-                  Download Brochure
-                </motion.button>
+                <a href={brochure} download="Kenya_Transport_Summit_Brochure.pdf" className="w-full sm:w-auto">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn-large-mobile bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold shadow-sm hover:shadow-md transition-all w-full sm:w-auto"
+                  >
+                    Download Brochure
+                  </motion.button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -540,7 +557,7 @@ const About = ({ setPage }) => {
             </h3>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 max-w-4xl mx-auto">
             {/* NAPTA Card */}
             <motion.div 
               variants={itemVariants}
@@ -548,38 +565,40 @@ const About = ({ setPage }) => {
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="flex-1 bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center"
+              className="flex-1 bg-white p-5 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center"
             >
-              <div className="h-24 w-full flex items-center justify-center mb-8">
-                <img src={naptalogo} alt="NAPTA" className="max-h-full max-w-[200px] object-contain" />
+              <div className="h-16 w-full flex items-center justify-center mb-4">
+                <img src={naptalogo} alt="NAPTA" className="max-h-full max-w-[160px] object-contain" loading="lazy" decoding="async" />
               </div>
-              <h4 className="text-lg font-bold text-napta-navy mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>NAPTA Kenya</h4>
-              <p className="text-slate-600 text-xs leading-relaxed font-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
-                The National Public Transport Alliance is the primary convener, driving the national agenda for safe, sustainable, and integrated transport systems.
+              <h4 className="text-sm font-bold text-napta-navy mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>NAPTA Kenya</h4>
+              <p className="text-slate-600 text-[10px] leading-relaxed font-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
+                Primary convener driving the national agenda for integrated transport systems.
               </p>
-              <div className="mt-auto pt-6">
-                <span className="text-[9px] font-bold text-napta-blue uppercase tracking-widest">Primary Convener</span>
+              <div className="mt-auto pt-3">
+                <span className="text-[8px] font-bold text-napta-blue uppercase tracking-widest">Primary Convener</span>
               </div>
             </motion.div>
 
-            {/* IDS Card */}
+            {/* IDS & Droll Combined Card */}
             <motion.div 
               variants={itemVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="flex-1 bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center"
+              className="flex-1 bg-white p-5 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center"
             >
-              <div className="h-24 w-full flex items-center justify-center mb-8">
-                <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-[200px] object-contain" />
+              <div className="h-16 w-full flex items-center justify-center gap-6 mb-4">
+                <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-[90px] object-contain" loading="lazy" decoding="async" />
+                <div className="h-8 w-px bg-slate-100"></div>
+                <img src={drollLogo} alt="Droll" className="max-h-full max-w-[90px] object-contain" loading="lazy" decoding="async" />
               </div>
-              <h4 className="text-lg font-bold text-napta-navy mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>IDS, University of Nairobi</h4>
-              <p className="text-slate-600 text-xs leading-relaxed font-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
-                The Institute for Development Studies provides the academic and research foundation, ensuring evidence-based policy recommendations and technical excellence.
+              <h4 className="text-sm font-bold text-napta-navy mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>Strategic Partners</h4>
+              <p className="text-slate-600 text-[10px] leading-relaxed font-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
+                IDS provides the research foundation, while Droll Alfa leads digital transformation and smart mobility.
               </p>
-              <div className="mt-auto pt-6">
-                <span className="text-[9px] font-bold text-sustainable-green uppercase tracking-widest">Academic Partner</span>
+              <div className="mt-auto pt-3">
+                <span className="text-[8px] font-bold text-sustainable-green uppercase tracking-widest">Academic & Tech Partners</span>
               </div>
             </motion.div>
           </div>
@@ -587,6 +606,6 @@ const About = ({ setPage }) => {
       </section>
     </div>
   );
-};
+};  
 
 export default About;

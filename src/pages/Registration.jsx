@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ChevronRight, ArrowLeft, Building2, BookOpen, Users, Briefcase } from 'lucide-react';
 
@@ -13,6 +13,8 @@ export default function Registration() {
     phone: '',
     requirements: ''
   });
+
+  const reference = useMemo(() => `KNTS2026-${Math.floor(100000 + Math.random() * 900000)}`, []);
 
   const categories = [
     { 
@@ -259,7 +261,7 @@ export default function Registration() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-slate-600">Reference</span>
-                        <span className="font-mono text-napta-blue">KNTS2026-{Math.floor(100000 + Math.random() * 900000)}</span>
+                        <span className="font-mono text-napta-blue">{reference}</span>
                       </div>
                     </div>
                   </div>

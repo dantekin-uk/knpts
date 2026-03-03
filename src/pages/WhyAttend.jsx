@@ -7,6 +7,7 @@ import shapingimage from '../assets/attend/shape.png';
 import meetimage from '../assets/attend/meet.png';
 import discoverimage from '../assets/attend/discover.png';
 import whyattendimage from '../assets/attend/whyattend.png';
+import brochure from '../assets/brochure.pdf';
 
 const WhyAttend = ({ setPage }) => {
   // Ensure page starts at the top when navigated to
@@ -116,6 +117,18 @@ const WhyAttend = ({ setPage }) => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Print-specific Styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media print {
+          nav, footer, .no-print, button, .cta-section, header, section { display: none !important; }
+          .min-h-screen { min-height: auto !important; padding-top: 0 !important; }
+          .max-w-7xl, .max-w-[1600px] { max-width: 100% !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+          body { background: white !important; color: black !important; }
+          .print-only { display: block !important; }
+          .prospectus-print { display: block !important; }
+        }
+      `}} />
+
       {/* Header Section */}
       <header className="relative pt-44 lg:pt-52 pb-2 lg:pb-4 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -185,6 +198,7 @@ const WhyAttend = ({ setPage }) => {
                 <img 
                   src={whyattendimage}
                   className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover hover:scale-105 transition-transform duration-700"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
@@ -199,6 +213,7 @@ const WhyAttend = ({ setPage }) => {
                   src={discoverimage}
                   alt="Summit Dialogue" 
                   className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover hover:scale-105 transition-transform duration-700"
+                  fetchPriority="high"
                 />
               </motion.div>
 
@@ -254,6 +269,8 @@ const WhyAttend = ({ setPage }) => {
                     src={benefit.image} 
                     alt={benefit.title} 
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 opacity-60"></div>
                 </div>
@@ -306,14 +323,16 @@ const WhyAttend = ({ setPage }) => {
                   Experience high-level policy plenaries, strategic intermodal networking, the Transport Expo, and the latest innovations in regional mobility.
                 </p>
                 
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group flex items-center gap-3 px-8 py-4 bg-sustainable-green text-white rounded-2xl font-bold text-sm shadow-xl shadow-sustainable-green/20 transition-all hover:bg-white hover:text-napta-navy"
-                >
-                  <FileText size={18} className="group-hover:scale-110 transition-transform duration-300" />
-                  Download Brochure
-                </motion.button>
+                <a href={brochure} download="Kenya_Transport_Summit_Brochure.pdf">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group flex items-center gap-3 px-8 py-4 bg-sustainable-green text-white rounded-2xl font-bold text-sm shadow-xl shadow-sustainable-green/20 transition-all hover:bg-white hover:text-napta-navy"
+                  >
+                    <FileText size={18} className="group-hover:scale-110 transition-transform duration-300" />
+                    Download Brochure
+                  </motion.button>
+                </a>
               </div>
 
               {/* Right Image */}
@@ -329,6 +348,8 @@ const WhyAttend = ({ setPage }) => {
                     src={discoverimage}
                     alt="Summit Experience" 
                     className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60"></div>
                 </motion.div>
@@ -438,21 +459,22 @@ const WhyAttend = ({ setPage }) => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green ">Kenya's transport?</span>
               </h2>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center px-4">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Registration')}
-                  className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
+                  onClick={() => setPage('Contact')}
+                  className="btn-large-mobile bg-napta-blue text-white rounded-2xl font-bold shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group w-full sm:w-auto"
                 >
                   Register as a Delegate
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
                 
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
+                  onClick={() => window.print()}
+                  className="btn-large-mobile bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold shadow-sm hover:shadow-md transition-all w-full sm:w-auto"
                 >
                   Download Prospectus
                 </motion.button>
@@ -461,6 +483,64 @@ const WhyAttend = ({ setPage }) => {
           </div>
         </div>
       </section>
+
+      {/* Print-only Prospectus Content */}
+      <div className="hidden prospectus-print p-12 text-napta-navy">
+        <div className="border-b-4 border-napta-blue pb-8 mb-12">
+          <h1 className="text-4xl font-black mb-2">KENYA TRANSPORT SUMMIT & EXPO 2026</h1>
+          <p className="text-xl font-bold text-sustainable-green tracking-widest uppercase">Official Event Prospectus</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-12 mb-12">
+          <div>
+            <h2 className="text-2xl font-bold mb-4 border-l-4 border-napta-blue pl-4">Event Overview</h2>
+            <p className="text-slate-700 leading-relaxed">
+              The Kenya Transport Summit & Expo (KTSE) 2026 is the nation's premier multi-modal convening. 
+              Building on the success of 2025, we are moving beyond fragmented planning to create a unified 
+              national accountability platform that aligns policy, investment, and implementation across all 47 counties.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4 border-l-4 border-sustainable-green pl-4">Key Details</h2>
+            <ul className="space-y-2 text-slate-700 font-bold">
+              <li>Date: September 30th – October 2nd, 2026</li>
+              <li>Venue: KICC, Nairobi, Kenya</li>
+              <li>Theme: Building Safe, Sustainable, and Inclusive Transport Systems</li>
+              <li>Expected Attendance: 2,000+ Delegates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 border-l-4 border-napta-blue pl-4">The 6 Sector Pillars</h2>
+          <div className="grid grid-cols-3 gap-4">
+            {['Aviation', 'Rail Transport', 'Marine & Water', 'Public Transport', 'Freight & Logistics', 'Non-Motorised'].map(pillar => (
+              <div key={pillar} className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold">
+                {pillar}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 border-l-4 border-sustainable-green pl-4">Why Partner With Us?</h2>
+          <div className="space-y-4">
+            <p className="font-bold">01. Direct Procurement Access</p>
+            <p className="text-slate-600 text-sm mb-4">Engage face-to-face with national and county governments actively seeking infrastructure and tech solutions.</p>
+            
+            <p className="font-bold">02. Thought Leadership</p>
+            <p className="text-slate-600 text-sm mb-4">Position your executives as the definitive voices in multi-modal transport on the main stage.</p>
+            
+            <p className="font-bold">03. Strategic Networking</p>
+            <p className="text-slate-600 text-sm">Utilize B2B deal rooms to engage with DFIs, global infrastructure funds, and major operators.</p>
+          </div>
+        </div>
+
+        <div className="mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-xs">
+          <p>© 2026 Kenya Transport Summit & Expo. All Rights Reserved.</p>
+          <p>www.kenyatransportsummit.com | info@kenyatransportsummit.com</p>
+        </div>
+      </div>
     </div>
   );
 };

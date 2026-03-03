@@ -23,7 +23,7 @@ import partner16 from '../assets/partnerslogo/partner16.png';
 import partner17 from '../assets/partnerslogo/partner17.png';
 import partner18 from '../assets/partnerslogo/partner18.png';
 import partner19 from '../assets/partnerslogo/partner19.png';
-import aboutimage from '../assets/about/about.png';
+import aboutimage from '../assets/about.png';
 import discoverimage from '../assets/attend/discover.png';
 
 const Partners = ({ setPage }) => {
@@ -79,11 +79,11 @@ const Partners = ({ setPage }) => {
             </motion.div>
             <motion.div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[560px]" initial="hidden" animate="visible" variants={containerVariants}>
               <motion.div variants={itemVariants} style={{ y: y1 }} className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]">
-                <img src={aboutimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Partnership" />
+                <img src={aboutimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Partnership" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div variants={itemVariants} style={{ y: y2 }} className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]">
-                <img src={discoverimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Collaboration" />
+                <img src={discoverimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Collaboration" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -100,7 +100,7 @@ const Partners = ({ setPage }) => {
             <div className="flex justify-center items-center">
               <div className="group flex flex-col items-center">
                 <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={naptalogo} alt="NAPTA" className="max-h-full max-w-full object-contain transition-all duration-500" />
+                   <img src={naptalogo} alt="NAPTA" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
                 <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">National Alliance</span>
               </div>
@@ -113,13 +113,13 @@ const Partners = ({ setPage }) => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
               <div className="group flex flex-col items-center">
                 <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-full object-contain transition-all duration-500" />
+                   <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
                 <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">Academic Partner</span>
               </div>
               <div className="group flex flex-col items-center">
                 <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={drollLogo} alt="Droll" className="max-h-full max-w-full object-contain transition-all duration-500" />
+                   <img src={drollLogo} alt="Droll" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
                 <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">Technology Partner</span>
               </div>
@@ -142,6 +142,8 @@ const Partners = ({ setPage }) => {
                     src={logo} 
                     alt={`Partner ${index + 1}`} 
                     className="max-h-full max-w-full object-contain transition-all duration-500" 
+                    loading="lazy"
+                    decoding="async"
                   />
                 </motion.div>
               ))}

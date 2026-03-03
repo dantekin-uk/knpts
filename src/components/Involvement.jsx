@@ -92,7 +92,7 @@ const Involvement = ({ setPage }) => {
               >
                 {/* Top Image Section */}
                 <div className="relative h-[180px] w-full rounded-[2rem] overflow-hidden mb-6">
-                  <img src={option.image} alt={option.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  <img src={option.image} alt={option.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
                 </div>
 
@@ -104,7 +104,7 @@ const Involvement = ({ setPage }) => {
                   <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90 mb-8">{option.desc}</p>
                   
                   <div className="mt-auto">
-                    <button onClick={() => setPage('Registration')} className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
+                    <button onClick={() => setPage('Contact')} className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
                       {option.action}
                     </button>
                   </div>
