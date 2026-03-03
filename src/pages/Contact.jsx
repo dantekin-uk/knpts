@@ -4,9 +4,15 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from 'lucide-react';
 
 const Contact = ({ setPage }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Contact Us | Kenya Transport Summit 2026";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Connect with the Kenya Transport Summit team for inquiries regarding exhibition space, sponsorship, speaking opportunities, or general information.");
+    }
     
     // Check if we just returned from a successful Zoho submission
     const params = new URLSearchParams(window.location.search);
@@ -121,12 +127,13 @@ const Contact = ({ setPage }) => {
                     name='WebToLeads6505276000001376995' 
                     method='POST' 
                     acceptCharset='UTF-8'
+                    onSubmit={() => setIsLoading(true)}
                     className="space-y-5"
                   >
                     {/* Zoho Required Hidden Fields */}
-                    <input type='hidden' name='xnQsjsdp' value='201f457ed4320c44e7f9b1f4f8336cb625424b6d0d30efd0d7c438713f245c18' />
+                    <input type='hidden' name='xnQsjsdp' value='baf59c59ce1a1a9bd9c225fc63581101560a24816fe9dcc1acaf2b89ae4cc5a5' />
                     <input type='hidden' name='zc_gad' id='zc_gad' value='' />
-                    <input type='hidden' name='xmIwtLD' value='d15f0bfd6633e235bfe83e021163195b4324170c0a4ffd9238c076895531509b5375d95fa46ecd8b716688a4c62666f4' />
+                    <input type='hidden' name='xmIwtLD' value='63eb7e3579de69020feca3d351370b8ea1e1bafe9d391c8d38f8c7a192b595813e514efc8b76353a622f25d3be405e53' />
                     <input type='hidden' name='actionType' value='TGVhZHM=' />
                     <input type='hidden' name='returnURL' value={`${window.location.origin}${window.location.pathname}?status=success`} />
                     <input type='hidden' name='aG9uZXlwb3Q' value='' />
@@ -154,9 +161,16 @@ const Contact = ({ setPage }) => {
                           <input required type="tel" name="Mobile" className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-napta-blue focus:bg-white outline-none transition-all text-sm" placeholder="+254..." />
                         </motion.div>
                         <motion.div variants={itemVariants}>
+                          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 ml-1">Email <span className="text-red-500">*</span></label>
+                          <input required type="email" name="Email" className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-napta-blue focus:bg-white outline-none transition-all text-sm" placeholder="john@example.com" />
+                        </motion.div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <motion.div variants={itemVariants}>
                           <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 ml-1">Inquiry Type <span className="text-red-500">*</span></label>
-                          <select required name="LEADCF1" className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-napta-blue focus:bg-white outline-none transition-all text-sm appearance-none cursor-pointer">
-                            <option value="-None-">- Select Option -</option>
+                          <select required name="LEADCF1" className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-napta-blue focus:bg-white outline-none transition-all text-sm cursor-pointer">
+                            <option value="">- Select Option -</option>
                             <option value="Exhibition Space">Exhibition Space</option>
                             <option value="Sponsorship">Sponsorship</option>
                             <option value="Delegate inquiry">Delegate inquiry</option>
@@ -172,8 +186,8 @@ const Contact = ({ setPage }) => {
                         </motion.div>
                         <motion.div variants={itemVariants}>
                           <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 ml-1">How did you find us?</label>
-                          <select name="Lead Source" className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-napta-blue focus:bg-white outline-none transition-all text-sm appearance-none cursor-pointer">
-                            <option value="-None-">- Select Option -</option>
+                          <select name="Lead Source" className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-napta-blue focus:bg-white outline-none transition-all text-sm cursor-pointer">
+                            <option value="">- Select Option -</option>
                             <option value="Advertisement">Advertisement</option>
                             <option value="Cold Call">Cold Call</option>
                             <option value="Employee Referral">Employee Referral</option>
@@ -203,10 +217,11 @@ const Contact = ({ setPage }) => {
                     <motion.div variants={itemVariants} className="pt-4">
                       <button 
                         type="submit" 
-                        className="w-full py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center justify-center gap-3 group"
+                        disabled={isLoading}
+                        className={`w-full py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center justify-center gap-3 group ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                       >
-                        Send Message
-                        <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        {isLoading ? 'Processing...' : 'Send Message'}
+                        {!isLoading && <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                       </button>
                     </motion.div>
                   </form>

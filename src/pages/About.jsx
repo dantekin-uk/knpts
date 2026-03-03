@@ -14,6 +14,11 @@ import brochure from '../assets/brochure.pdf';
 const About = ({ setPage }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "About the Summit | Kenya Transport Summit 2026";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Learn about the Kenya Transport Summit 2026 mandate, our evolution from public transport to a multi-modal ecosystem, and our vision for the next century.");
+    }
   }, []);
 
   // Parallax logic for hero images
