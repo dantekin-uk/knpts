@@ -1,37 +1,49 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ChevronRight, ArrowLeft, Building2, BookOpen, Users, Briefcase } from 'lucide-react';
 
 export default function Registration() {
   const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    category: '',
-    name: '',
-    email: '',
-    organization: '',
-    position: '',
-    phone: '',
-    requirements: ''
+    COBJ1CF6: '', // Participant Category
+    NAME: '',     // First Name
+    COBJ1CF4: '', // Second Name
+    Email: '',
+    COBJ1CF3: '', // Company
+    COBJ1CF5: '', // Title
+    COBJ1CF1: '', // Phone
+    COBJ1CF2: ''  // Additional Comments
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('status') === 'success') {
+      setIsSubmitted(true);
+      setStep(3);
+    }
+  }, []);
 
   const reference = useMemo(() => `KNTS2026-${Math.floor(100000 + Math.random() * 900000)}`, []);
 
   const categories = [
     { 
       id: 'government', 
-      name: 'National/County Government', 
+      name: 'National / County Government', 
       icon: <Building2 size={20} className="text-napta-blue" />,
       description: 'Public sector officials and policymakers'
     },
     { 
       id: 'operators', 
-      name: 'Transport Operators', 
+      name: 'Transport Operator', 
       icon: <Users size={20} className="text-napta-blue" />,
       description: 'Public and private transport service providers'
     },
     { 
       id: 'academia', 
-      name: 'Academia & Research', 
+      name: 'Academia / Research', 
       icon: <BookOpen size={20} className="text-napta-blue" />,
       description: 'Researchers, educators, and students'
     },
@@ -52,11 +64,17 @@ export default function Registration() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Submit form
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
-    setStep(3); // Success step
+    // Basic validation before allowing standard POST submission
+    const mndFields = ['NAME', 'Email', 'COBJ1CF1', 'COBJ1CF2', 'COBJ1CF4', 'COBJ1CF6'];
+    for (let field of mndFields) {
+      if (!formData[field] || formData[field].trim() === '' || formData[field] === '-None-') {
+        alert('Please fill in all required fields.');
+        e.preventDefault();
+        return;
+      }
+    }
+    
+    setIsLoading(true);
   };
 
   return (
@@ -74,7 +92,23 @@ export default function Registration() {
           </div>
           
           <div className="p-8 md:p-12">
-            <AnimatePresence mode="wait">
+            <form 
+              id='webform6505276000001458665' 
+              action='https://crm.zoho.com/crm/WebForm' 
+              method='POST' 
+              onSubmit={handleSubmit}
+              acceptCharset='UTF-8'
+            >
+              {/* Zoho Required Hidden Fields */}
+              <input type='hidden' name='xnQsjsdp' value='6a5385b4e8a716defd70419f22fa204cb0aab6e4088832bbf35633762c601974' />
+              <input type='hidden' name='zc_gad' id='zc_gad' value='' />
+              <input type='hidden' name='xmIwtLD' value='114d93c981b94e9117151181e15f109ac80eb69bef95d613f987211f3c7f330782a6105b69572261c9156be9ec8a585f' />
+              <input type='hidden' name='actionType' value='Q3VzdG9tTW9kdWxlMQ==' />
+              <input type='hidden' name='returnURL' value={`${window.location.origin}${window.location.pathname}?status=success`} />
+              <input type='hidden' name='aG9uZXlwb3Q' value='' />
+              <input type='hidden' name='COBJ1CF6' value={formData.COBJ1CF6} />
+
+              <AnimatePresence mode="wait">
               {step === 1 && (
                 <motion.div
                   key="step1"
@@ -95,7 +129,7 @@ export default function Registration() {
                         whileHover={{ y: -4, scale: 1.01 }}
                         whileTap={{ scale: 0.99 }}
                         onClick={() => {
-                          setFormData(prev => ({ ...prev, category: category.name }));
+                          setFormData(prev => ({ ...prev, COBJ1CF6: category.name }));
                           setStep(2);
                         }}
                         className="w-full p-4 rounded-xl border border-slate-100 text-left text-slate-600 bg-white/50 hover:bg-white hover:shadow-xl hover:border-napta-blue/30 transition-all flex items-start gap-4 group"
@@ -115,12 +149,11 @@ export default function Registration() {
               )}
 
               {step === 2 && (
-                <motion.form
+                <motion.div
                   key="step2"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  onSubmit={handleSubmit}
                   className="space-y-6"
                 >
                   <div>
@@ -136,17 +169,31 @@ export default function Registration() {
                   </div>
                   
                   <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-600 mb-1">Full Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
-                        placeholder="John Doe"
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-600 mb-1">First Name</label>
+                        <input
+                          type="text"
+                          name="NAME"
+                          value={formData.NAME}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
+                          placeholder="John"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-600 mb-1">Second Name</label>
+                        <input
+                          type="text"
+                          name="COBJ1CF4"
+                          value={formData.COBJ1CF4}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
+                          placeholder="Doe"
+                        />
+                      </div>
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -154,8 +201,8 @@ export default function Registration() {
                         <label className="block text-sm font-medium text-slate-600 mb-1">Email</label>
                         <input
                           type="email"
-                          name="email"
-                          value={formData.email}
+                          name="Email"
+                          value={formData.Email}
                           onChange={handleInputChange}
                           required
                           className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
@@ -166,8 +213,8 @@ export default function Registration() {
                         <label className="block text-sm font-medium text-slate-600 mb-1">Phone</label>
                         <input
                           type="tel"
-                          name="phone"
-                          value={formData.phone}
+                          name="COBJ1CF1"
+                          value={formData.COBJ1CF1}
                           onChange={handleInputChange}
                           required
                           className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
@@ -180,10 +227,9 @@ export default function Registration() {
                       <label className="block text-sm font-medium text-slate-600 mb-1">Organization</label>
                       <input
                         type="text"
-                        name="organization"
-                        value={formData.organization}
+                        name="COBJ1CF3"
+                        value={formData.COBJ1CF3}
                         onChange={handleInputChange}
-                        required
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
                         placeholder="Your organization name"
                       />
@@ -193,24 +239,24 @@ export default function Registration() {
                       <label className="block text-sm font-medium text-slate-600 mb-1">Position</label>
                       <input
                         type="text"
-                        name="position"
-                        value={formData.position}
+                        name="COBJ1CF5"
+                        value={formData.COBJ1CF5}
                         onChange={handleInputChange}
-                        required
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
                         placeholder="Your position/title"
                       />
                     </div>
                     
                     <div>
-                      <label className="block text-sm font-medium text-slate-600 mb-1">Special Requirements</label>
+                      <label className="block text-sm font-medium text-slate-600 mb-1">Additional Comments</label>
                       <textarea
-                        name="requirements"
-                        value={formData.requirements}
+                        name="COBJ1CF2"
+                        value={formData.COBJ1CF2}
                         onChange={handleInputChange}
+                        required
                         rows="3"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 focus:border-napta-blue outline-none"
-                        placeholder="Accessibility needs, dietary restrictions, etc."
+                        placeholder="Any specific requirements or comments?"
                       />
                     </div>
 
@@ -226,12 +272,13 @@ export default function Registration() {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-napta-blue text-white py-4 rounded-xl font-bold hover:bg-napta-navy transition-colors flex items-center justify-center gap-2"
+                      disabled={isLoading}
+                      className={`w-full bg-napta-blue text-white py-4 rounded-xl font-bold hover:bg-napta-navy transition-colors flex items-center justify-center gap-2 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                     >
-                      Complete Registration <ChevronRight size={18} />
+                      {isLoading ? 'Processing...' : 'Complete Registration'} <ChevronRight size={18} />
                     </button>
                   </div>
-                </motion.form>
+                </motion.div>
               )}
 
               {step === 3 && (
@@ -246,14 +293,14 @@ export default function Registration() {
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Registration Complete!</h2>
                   <p className="text-slate-600 mb-8 max-w-md mx-auto">
-                    Thank you for registering for KNTS&E 2026. We've sent a confirmation email to <span className="text-slate-900 font-medium">{formData.email}</span> with your ticket and event details.
+                    Thank you for registering for KNTS&E 2026. Our team will review your registration and get back to you shortly with your ticket and event details.
                   </p>
                   <div className="bg-slate-50 p-6 rounded-2xl max-w-md mx-auto mb-8 text-left border border-slate-100">
                     <h3 className="font-bold text-slate-900 mb-4">Your Registration</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-slate-600">Name</span>
-                        <span className="font-medium text-slate-900">{formData.name}</span>
+                        <span className="font-medium text-slate-900">{formData.NAME} {formData.COBJ1CF4}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-slate-600">Pass Type</span>
@@ -282,7 +329,8 @@ export default function Registration() {
                 </motion.div>
               )}
             </AnimatePresence>
-            
+            </form>
+
             {step < 3 && (
               <div className="mt-8 pt-6 border-t border-white/5 text-center">
                 <p className="text-sm text-slate-500">

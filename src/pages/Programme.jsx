@@ -151,7 +151,7 @@ export default function Programme({ setPage }) {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group"
                 >
                   Register Now
@@ -392,7 +392,7 @@ export default function Programme({ setPage }) {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
                 >
                   Secure Delegate Pass

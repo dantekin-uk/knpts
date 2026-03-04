@@ -525,7 +525,7 @@ const About = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage && setPage('Contact')}
+                  onClick={() => setPage && setPage('Registration')}
                   className="btn-large-mobile bg-napta-blue text-white rounded-2xl font-bold shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group w-full sm:w-auto"
                 >
                   Register Now

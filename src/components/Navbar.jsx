@@ -296,7 +296,7 @@ const Navbar = ({ activePage, setPage }) => {
         <div className="flex-1 hidden md:flex justify-end">
           <div className={`${scrolled ? '' : 'ml-4 pl-4 border-l border-slate-200/20'}`}>
             <motion.button 
-              onClick={() => setPage('Contact')} 
+              onClick={() => setPage('Registration')} 
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className={`btn-large-mobile rounded-xl font-bold transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 ${
@@ -489,7 +489,7 @@ const Navbar = ({ activePage, setPage }) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => { 
-                  setPage('Contact');
+                  setPage('Registration');
                   setIsOpen(false); 
                 }}
                 className="mt-4 w-full py-3 sm:py-4 rounded-xl font-bold text-center shadow-xl transition-all flex items-center justify-center gap-2 bg-white text-napta-blue text-sm sm:text-base"

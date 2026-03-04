@@ -79,7 +79,7 @@ const ExhibitWithUs = ({ setPage }) => {
               </motion.div>
 
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
                   Join as an Exhibitor
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
@@ -243,7 +243,7 @@ const ExhibitWithUs = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
                 >
                   Register Now

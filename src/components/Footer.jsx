@@ -76,7 +76,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
             <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-wider">Participation</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               {[
-                { label: 'Register Delegate', action: () => setPage('Contact') },
+                { label: 'Register Delegate', action: () => setPage('Registration') },
                 { label: 'Exhibit With Us', action: () => setPage('ExhibitWithUs') },
                 { label: 'Pitch Day', action: () => setPage('PitchDay') },
                 { label: 'Contact Us', action: () => setPage('Contact') }

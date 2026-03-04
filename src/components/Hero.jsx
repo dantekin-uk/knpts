@@ -72,7 +72,7 @@ const Hero = ({ setPage }) => {
               whileHover={{ scale: 1.03, boxShadow: '0 8px 25px rgba(27, 93, 165, 0.3)' }}
               whileTap={{ scale: 0.97 }}
               className="px-6 py-3 bg-napta-blue hover:bg-napta-navy text-white rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all duration-300"
-              onClick={() => setPage('Contact')}
+              onClick={() => setPage('Registration')}
             >
               Register Now
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

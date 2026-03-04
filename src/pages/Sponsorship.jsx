@@ -273,7 +273,7 @@ const Sponsorship = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
                 >
                   Register Now

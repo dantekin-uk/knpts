@@ -77,11 +77,11 @@ const PitchDay = ({ setPage }) => {
                 Where Transport Innovation Meets Institutional Capital. Step into East Africa’s most exclusive deal-making platform connecting agile startups directly with global VCs and government procurement teams.
               </motion.p>
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
                   Apply to Pitch
                   <Rocket size={18} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-                <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
                   Register as an Investor
                   <Users size={18} className="group-hover:scale-110 transition-transform" />
                 </motion.button>
@@ -243,7 +243,7 @@ const PitchDay = ({ setPage }) => {
               Applications for the 2026 Summit Pitch Day close on August 1st, 2026. Do not miss the opportunity to scale your solution across East Africa’s transport network.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group">
+              <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group">
                 Submit Your Pitch Deck
                 <FileText size={20} />
               </motion.button>
