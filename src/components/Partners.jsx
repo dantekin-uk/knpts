@@ -22,9 +22,13 @@ import partner16 from '../assets/partnerslogo/partner16.png';
 import partner17 from '../assets/partnerslogo/partner17.png';
 import partner18 from '../assets/partnerslogo/partner18.png';
 import partner19 from '../assets/partnerslogo/partner19.png';
+import partner20 from '../assets/partnerslogo/partner20.png';
+import partner21 from '../assets/partnerslogo/partner21.png';
 
 
 const Partners = ({ setPage }) => {
+  console.log('partner20:', partner20);
+  console.log('partner21:', partner21);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,7 +51,7 @@ const Partners = ({ setPage }) => {
 
   const partnerLogos = [
     partner16, partner19, partner1, partner2, partner3, partner4, partner5, partner6, partner7, partner8,
-    partner9, partner10, partner11, partner12, partner13, partner14, partner15, partner17, partner18
+    partner9, partner10, partner11, partner12, partner13, partner14, partner15, partner17, partner18, partner20, partner21
   ];
 
   return (

@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ShieldCheck, Users, Crown, Star, Gem, Award, Target, Trophy, Rocket, Coffee, CreditCard, FileText, Globe, Zap, Building2, Briefcase } from 'lucide-react';
 import aboutimage from '../assets/about.png';
 import discoverimage from '../assets/attend/discover.png';
+import brochure from '../assets/Prospectus.pdf';
 
 const Sponsorship = ({ setPage }) => {
   useEffect(() => {
@@ -92,10 +93,12 @@ const Sponsorship = ({ setPage }) => {
                 Align Your Brand with the Future of African Mobility. The Kenya Transport Summit & Expo (KTSE) 2026 is the ultimate convergence of public policy and private capital.
               </motion.p>
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button onClick={() => window.print()} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
-                  Download Sponsorship Deck
-                  <FileText size={18} className="group-hover:scale-110 transition-transform" />
-                </motion.button>
+                <a href={brochure} download="prospectus.pdf">
+                  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
+                    Download Sponsorship Deck
+                    <FileText size={18} className="group-hover:scale-110 transition-transform" />
+                  </motion.button>
+                </a>
                 <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
                   Contact Our Team
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -260,15 +263,16 @@ const Sponsorship = ({ setPage }) => {
                 Partnership opportunities for KTSE 2026 are highly competitive. Let us build a bespoke package that aligns with your objectives.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.button 
-                  onClick={() => window.print()}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
-                >
-                  Request Sponsorship Prospectus
-                  <FileText size={20} />
-                </motion.button>
+                <a href={brochure} download="prospectus.pdf">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
+                  >
+                    Request Sponsorship Prospectus
+                    <FileText size={20} />
+                  </motion.button>
+                </a>
                 
                 <motion.button 
                   whileHover={{ scale: 1.05 }}

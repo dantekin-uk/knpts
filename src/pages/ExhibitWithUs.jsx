@@ -5,6 +5,8 @@ import whyattendimage from '../assets/attend/whyattend.png';
 import discoverimage from '../assets/attend/discover.png';
 import aboutimage from '../assets/about.png';
 import inovationimage from '../assets/attend/inovation.png';
+import brochure from '../assets/Prospectus.pdf';
+import floorplan from '../assets/floorplan.jpeg';
 
 const ExhibitWithUs = ({ setPage }) => {
   const [activeTab, setActiveTab] = useState('headline');
@@ -83,10 +85,14 @@ const ExhibitWithUs = ({ setPage }) => {
                   Join as an Exhibitor
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-                <motion.button onClick={() => window.print()} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
+                
+                 <a href={brochure} download="prospectus.pdf" className="w-full sm:w-auto"> 
+                  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
                   Download Exhibitor Prospectus
                   <FileText size={18} className="group-hover:scale-110 transition-transform" />
                 </motion.button>
+                 </a>
+                
               </motion.div>
             </motion.div>
 
@@ -249,6 +255,17 @@ const ExhibitWithUs = ({ setPage }) => {
                   Register Now
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
+                
+                <a href={floorplan} target="_blank" rel="noopener noreferrer">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
+                  >
+                    View Floor Plan
+                    <Layout size={20} className="group-hover:scale-110 transition-transform" />
+                  </motion.button>
+                </a>
               </div>
             </motion.div>
           </div>

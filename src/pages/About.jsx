@@ -375,6 +375,7 @@ const About = ({ setPage }) => {
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setPage('Sponsorship')}
                   className="group flex items-center gap-3 px-8 py-3.5 bg-sustainable-green text-white rounded-2xl font-bold text-sm shadow-xl shadow-sustainable-green/20 transition-all hover:bg-white hover:text-napta-navy"
                 >
                   <FileText size={18} className="group-hover:scale-110 transition-transform duration-300" />

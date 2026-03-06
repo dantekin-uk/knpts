@@ -23,6 +23,8 @@ import partner16 from '../assets/partnerslogo/partner16.png';
 import partner17 from '../assets/partnerslogo/partner17.png';
 import partner18 from '../assets/partnerslogo/partner18.png';
 import partner19 from '../assets/partnerslogo/partner19.png';
+import partner20 from '../assets/partnerslogo/partner20.png';
+import partner21 from '../assets/partnerslogo/partner21.png';
 import aboutimage from '../assets/about.png';
 import discoverimage from '../assets/attend/discover.png';
 
@@ -37,7 +39,7 @@ const Partners = ({ setPage }) => {
 
   const partnerLogos = [
     partner16, partner19, partner1, partner2, partner3, partner4, partner5, partner6, partner7, partner8,
-    partner9, partner10, partner11, partner12, partner13, partner14, partner15, partner17, partner18
+    partner9, partner10, partner11, partner12, partner13, partner14, partner15, partner17, partner18, partner20, partner21
   ];
 
   const containerVariants = {
@@ -130,7 +132,7 @@ const Partners = ({ setPage }) => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="pt-16 border-t border-slate-200/60">
             <p className="text-[9px] font-black text-slate-300 uppercase tracking-[0.3em] text-center mb-16">Our Summit Partners</p>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-10">
               {partnerLogos.map((logo, index) => (
                 <motion.div 
                   key={index}
