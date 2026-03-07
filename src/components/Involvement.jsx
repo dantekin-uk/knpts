@@ -104,7 +104,7 @@ const Involvement = ({ setPage }) => {
                   <p className="text-slate-500 text-sm leading-relaxed font-normal opacity-90 mb-8">{option.desc}</p>
                   
                   <div className="mt-auto">
-                    <button onClick={() => setPage('Registration')} className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
+                    <button onClick={() => option.id === '01' ? setPage('Registration') : setPage('Contact')} className="px-6 py-2 rounded-full border border-sustainable-green text-sustainable-green hover:bg-sustainable-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
                       {option.action}
                     </button>
                   </div>
