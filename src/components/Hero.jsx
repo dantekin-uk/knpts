@@ -20,7 +20,7 @@ const Hero = ({ setPage }) => {
   };
 
   return (
-    <header className="relative min-h-screen w-full flex items-center justify-center pt-40 md:pt-52 pb-12 md:pb-20 overflow-hidden">
+    <header className="relative min-h-[60vh] lg:min-h-[55vh] w-full flex items-center justify-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden">
       <video
         autoPlay
         muted
