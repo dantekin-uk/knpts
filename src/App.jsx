@@ -19,6 +19,7 @@ import TransportExpo from './pages/TransportExpo';
 import Contact from './pages/Contact';
 import PartnersPage from './pages/Partners';
 import Speakers from './pages/Speakers';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -87,6 +88,8 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+
+      <WhatsAppWidget />
 
       <Footer setPage={setCurrentPage} scrollToAbout={scrollToAbout} />
     </div>

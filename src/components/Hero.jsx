@@ -29,11 +29,11 @@ const Hero = ({ setPage }) => {
         preload="auto"
         className="absolute inset-0 z-0 w-full h-full object-cover"
       >
-        <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}hero.mov`} type="video/mp4" />
       </video>
 
-      {/* Subtle top gradient overlay to improve logo visibility when navbar is transparent */}
-      <div className="absolute top-0 left-0 right-0 h-30 bg-gradient-to-r from-white/14 to-black/14 z-[0.5] pointer-events-none"></div>
+      {/* Dark overlay to improve text visibility */}
+      <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none"></div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
@@ -80,11 +80,11 @@ const Hero = ({ setPage }) => {
             <motion.button
               whileHover={{ 
                 scale: 1.03,
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                borderColor: 'rgba(255, 255, 255, 0.3)'
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                borderColor: 'rgba(255, 255, 255, 0.5)'
               }}
               whileTap={{ scale: 0.97 }}
-              className="px-6 py-3 bg-white/5 border border-white/20 text-white rounded-xl font-bold text-base transition-all duration-300"
+              className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-xl font-bold text-base transition-all duration-300 shadow-lg"
               onClick={() => setPage('WhyAttend')}
             >
               Why Attend the Summit?

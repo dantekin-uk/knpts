@@ -64,7 +64,8 @@ const Navbar = ({ activePage, setPage }) => {
   };
 
   const isHome = activePage === 'Home';
-  const showScrolledStyle = scrolled || !isHome || isMobile;
+  // Always show the white background style as requested ("the white one it should be static")
+  const showScrolledStyle = true;
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-b h-20 md:h-24 ${

@@ -50,7 +50,7 @@ const Contact = ({ setPage }) => {
             >
               <motion.h1 
                 variants={itemVariants}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-napta-navy leading-[1.15] tracking-tight mb-6"
+                className="text-3xl md:text-3xl lg:text-4xl font-bold text-napta-navy leading-[1.15] tracking-tight mb-6"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 Connect with the <br/>
@@ -83,11 +83,13 @@ const Contact = ({ setPage }) => {
                   variants={itemVariants}
                   className="p-6 rounded-[2rem] bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-500 group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-sustainable-green/10 flex items-center justify-center text-sustainable-green mb-4 group-hover:bg-sustainable-green group-hover:text-white transition-colors">
-                    <Phone size={20} />
-                  </div>
-                  <h4 className="font-bold text-napta-navy text-sm mb-1">Call Us</h4>
-                  <p className="text-slate-500 text-xs">+254 719 282 866</p>
+                  <a href="tel:+254750655379" className="block cursor-pointer">
+                    <div className="w-10 h-10 rounded-xl bg-sustainable-green/10 flex items-center justify-center text-sustainable-green mb-4 group-hover:bg-sustainable-green group-hover:text-white transition-colors">
+                      <Phone size={20} />
+                    </div>
+                    <h4 className="font-bold text-napta-navy text-sm mb-1">Call Us</h4>
+                    <p className="text-slate-500 text-xs">0750655379</p>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>
