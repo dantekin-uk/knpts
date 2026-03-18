@@ -29,7 +29,7 @@ const Hero = ({ setPage }) => {
         preload="auto"
         className="absolute inset-0 z-0 w-full h-full object-cover"
       >
-        <source src={`${import.meta.env.BASE_URL}hero.mov`} type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
       </video>
 
       {/* Dark overlay to improve text visibility */}
