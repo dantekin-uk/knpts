@@ -57,7 +57,7 @@ const Hero = ({ setPage }) => {
               className="text-base md:text-lg lg:text-xl font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Building Safe, Sustainable and Inclusive Transport Systems
+             Building Safe, Sustainable, Inclusive and Integrated Transport Systems for the people
             </p>
             <p className="text-xs md:text-base font-normal text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em]">
               30th Sep - 2nd Oct 2026 • KICC, Nairobi
