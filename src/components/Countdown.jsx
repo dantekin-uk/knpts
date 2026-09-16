@@ -12,8 +12,8 @@ const Countdown = () => {
   useEffect(() => {
     setIsMounted(true);
     
-    // Set the date we're counting down to (September 23, 2026 09:00:00 EAT)
-    const countDownDate = new Date("Sep 30, 2026 09:00:00 GMT+0300").getTime();
+    // Set the date we're counting down to (November 4, 2026 09:00:00 EAT)
+    const countDownDate = new Date("Nov 4, 2026 09:00:00 GMT+0300").getTime();
 
     const updateCountdown = () => {
       // Get today's date and time
@@ -79,7 +79,7 @@ const Countdown = () => {
       </div>
       
       <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mt-6 text-center lg:text-right">
-        Until the summit begins • September 30, 2026 • Nairobi, Kenya
+        Until the summit begins • November 4, 2026 • Nairobi, Kenya
       </p>
     </div>
   );

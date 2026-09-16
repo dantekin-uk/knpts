@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Mic2, Building2, DollarSign, Zap, BookOpen, ArrowRight, Users } from 'lucide-react';
 import speakerimage from '../assets/speaker.png';
-import aboutimage from '../assets/about/about.png';
+import aboutimage from '../assets/about.png';
 
 const Speakers = ({ setPage }) => {
   useEffect(() => {
@@ -63,7 +63,7 @@ const Speakers = ({ setPage }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Section */}
-      <header className="relative pt-44 lg:pt-52 pb-12 bg-white overflow-hidden">
+      <header className="relative pt-44 lg:pt-52 pb-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <motion.div 
@@ -97,7 +97,7 @@ const Speakers = ({ setPage }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group"
                 >
                   Submit a Speaker Nomination
@@ -117,7 +117,7 @@ const Speakers = ({ setPage }) => {
                 style={{ y: y1 }}
                 className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]"
               >
-                <img src={speakerimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Speakers" />
+                <img src={speakerimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Speakers" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div 
@@ -125,7 +125,7 @@ const Speakers = ({ setPage }) => {
                 style={{ y: y2 }}
                 className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]"
               >
-                <img src={aboutimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Dialogue" />
+                <img src={aboutimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Dialogue" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -171,18 +171,18 @@ const Speakers = ({ setPage }) => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -15, scale: 1.01 }}
-                  className="p-10 rounded-[3rem] bg-white border border-slate-100 hover:shadow-2xl hover:border-napta-blue/20 transition-all duration-700 group flex flex-col"
+                  className="p-6 rounded-[2rem] bg-white border border-slate-100 hover:shadow-2xl hover:border-napta-blue/20 transition-all duration-700 group flex flex-col"
                 >
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 shadow-inner ${
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 shadow-inner ${
                     item.color === 'blue' ? 'bg-napta-blue/5 text-napta-blue group-hover:bg-napta-blue' : 'bg-sustainable-green/5 text-sustainable-green group-hover:bg-sustainable-green'
                   } group-hover:text-white`}>
-                    <item.icon size={28} strokeWidth={1.5} />
+                    <item.icon size={24} strokeWidth={1.5} />
                   </div>
-                  <h4 className="text-lg font-bold text-napta-navy mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>{item.title}</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed mb-8 font-normal flex-1">{item.desc}</p>
+                  <h4 className="text-base font-bold text-napta-navy mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>{item.title}</h4>
+                  <p className="text-slate-500 text-xs leading-relaxed mb-4 font-normal flex-1">{item.desc}</p>
                   
-                  <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
-                    <span className="text-napta-blue text-[10px] font-bold uppercase tracking-widest bg-napta-blue/5 px-4 py-2 rounded-full">Strategic Voice</span>
+                  <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                    <span className="text-napta-blue text-[9px] font-bold uppercase tracking-widest bg-napta-blue/5 px-3 py-1.5 rounded-full">Strategic Voice</span>
                     <ArrowRight size={16} className="text-slate-300 group-hover:text-napta-blue group-hover:translate-x-1 transition-all" />
                   </div>
                 </motion.div>
@@ -219,7 +219,7 @@ const Speakers = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-10 py-4 bg-napta-blue text-white rounded-2xl font-bold text-base shadow-xl shadow-napta-blue/20 transition-all flex items-center gap-2 group"
                 >
                   Apply to Speak
@@ -229,7 +229,7 @@ const Speakers = ({ setPage }) => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setPage('Contact')}
+                  onClick={() => setPage('Registration')}
                   className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all"
                 >
                   Inquire About Moderating

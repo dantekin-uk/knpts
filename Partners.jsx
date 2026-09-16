@@ -158,7 +158,7 @@ const Partners = ({ setPage }) => {
                   className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center group"
                 >
                   <div className="h-32 w-full flex items-center justify-center mb-8 transition-all duration-500">
-                    <img src={partner.logo} alt={partner.name} className="h-24 md:h-32 w-auto object-contain" />
+                    <img src={partner.logo} alt={partner.name} className="h-24 md:h-32 w-auto object-contain" loading="lazy" decoding="async" />
                   </div>
                   <h4 className="text-lg font-bold text-napta-navy mb-2">{partner.name}</h4>
                   <p className="text-xs text-napta-blue font-bold uppercase tracking-widest mb-4">{partner.role}</p>

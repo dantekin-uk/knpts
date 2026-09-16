@@ -3,8 +3,10 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Globe, Target, Zap, Users, FileText, Layout, Briefcase, Rocket, Building2, ShieldCheck, Crown, Plane } from 'lucide-react';
 import whyattendimage from '../assets/attend/whyattend.png';
 import discoverimage from '../assets/attend/discover.png';
-import aboutimage from '../assets/about/about.png';
+import aboutimage from '../assets/about.png';
 import inovationimage from '../assets/attend/inovation.png';
+import brochure from '../assets/Prospectus.pdf';
+import floorplan from '../assets/floorplan.jpeg';
 
 const ExhibitWithUs = ({ setPage }) => {
   const [activeTab, setActiveTab] = useState('headline');
@@ -72,31 +74,35 @@ const ExhibitWithUs = ({ setPage }) => {
               </motion.h1>
 
               <motion.div variants={itemVariants} className="mb-8">
-                <p className="text-napta-blue font-bold text-sm uppercase tracking-widest mb-2">September 30th — October 2nd, 2026 | KICC, Nairobi</p>
+                <p className="text-napta-blue font-bold text-sm uppercase tracking-widest mb-2">November 4th — 6th, 2026 | KICC, Nairobi</p>
                 <p className="text-slate-600 text-sm md:text-base font-normal leading-relaxed max-w-xl">
                   Position your physical assets and digital solutions directly in front of the government decision-makers, operators, and institutional investors funding Kenya’s transport future. Premium floor space is strictly limited.
                 </p>
               </motion.div>
 
               <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                <motion.button onClick={() => setPage('Contact')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
+                <motion.button onClick={() => setPage('Registration')} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-napta-blue text-white rounded-2xl font-bold text-sm shadow-xl shadow-napta-blue/20 hover:bg-napta-navy transition-all flex items-center gap-2 group">
                   Join as an Exhibitor
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-                <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
+                
+                 <a href={brochure} download="prospectus.pdf" className="w-full sm:w-auto"> 
+                  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-8 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-sm shadow-sm hover:shadow-md transition-all flex items-center gap-2 group">
                   Download Exhibitor Prospectus
                   <FileText size={18} className="group-hover:scale-110 transition-transform" />
                 </motion.button>
+                 </a>
+                
               </motion.div>
             </motion.div>
 
             <motion.div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[560px]" initial="hidden" animate="visible" variants={containerVariants}>
               <motion.div variants={itemVariants} style={{ y: y1 }} className="absolute top-0 right-0 z-10 rounded-[2rem] overflow-hidden shadow-xl w-[82%] lg:w-[78%]">
-                <img src={whyattendimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Exhibition Hall" />
+                <img src={whyattendimage} className="w-full h-[310px] sm:h-[390px] lg:h-[460px] object-cover" alt="Exhibition Hall" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/40 via-transparent to-transparent opacity-60"></div>
               </motion.div>
               <motion.div variants={itemVariants} style={{ y: y2 }} className="absolute bottom-0 left-0 z-20 rounded-[1.5rem] overflow-hidden shadow-2xl w-[45%] lg:w-[40%]">
-                <img src={inovationimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Innovation" />
+                <img src={inovationimage} className="w-full h-[100px] sm:h-[150px] lg:h-[190px] object-cover" alt="Innovation" fetchPriority="high" />
               </motion.div>
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-sustainable-green/10 rounded-full blur-3xl -z-0"></div>
             </motion.div>
@@ -249,6 +255,17 @@ const ExhibitWithUs = ({ setPage }) => {
                   Register Now
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
+                
+                <a href={floorplan} target="_blank" rel="noopener noreferrer">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-white border border-slate-200 text-napta-navy rounded-2xl font-bold text-base shadow-sm hover:shadow-md transition-all flex items-center gap-2 group"
+                  >
+                    View Floor Plan
+                    <Layout size={20} className="group-hover:scale-110 transition-transform" />
+                  </motion.button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -260,6 +277,72 @@ const ExhibitWithUs = ({ setPage }) => {
           100% { transform: translateX(100%); }
         }
       `}</style>
+
+      {/* Print-specific Styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media print {
+          nav, footer, .no-print, button, .cta-section, header, section { display: none !important; }
+          .min-h-screen { min-height: auto !important; padding-top: 0 !important; }
+          body { background: white !important; color: black !important; }
+          .prospectus-print { display: block !important; }
+        }
+      `}} />
+
+      {/* Print-only Prospectus Content */}
+      <div className="hidden prospectus-print p-12 text-napta-navy">
+        <div className="border-b-4 border-napta-blue pb-8 mb-12">
+          <h1 className="text-4xl font-black mb-2">KENYA TRANSPORT SUMMIT & EXPO 2026</h1>
+          <p className="text-xl font-bold text-sustainable-green tracking-widest uppercase">Exhibitor Prospectus</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-12 mb-12">
+          <div>
+            <h2 className="text-2xl font-bold mb-4 border-l-4 border-napta-blue pl-4">Exhibition Overview</h2>
+            <p className="text-slate-700 leading-relaxed">
+              Position your physical assets and digital solutions directly in front of the government decision-makers, 
+              operators, and institutional investors funding Kenya’s transport future.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4 border-l-4 border-sustainable-green pl-4">Key Details</h2>
+            <ul className="space-y-2 text-slate-700 font-bold">
+              <li>Date: November 4th – 6th, 2026</li>
+              <li>Venue: KICC, Nairobi, Kenya</li>
+              <li>Expected Attendance: 2,000+ Delegates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 border-l-4 border-napta-blue pl-4">Exhibition Zones</h2>
+          <div className="grid grid-cols-2 gap-4">
+            {['Aviation, Rail & Marine', 'E-Mobility & Public Transit', 'Startups & Digital Logistics', 'Headline Sponsors & OEMs'].map(zone => (
+              <div key={zone} className="p-4 bg-slate-50 rounded-xl border border-slate-200 font-bold">
+                {zone}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 border-l-4 border-sustainable-green pl-4">Why Exhibit?</h2>
+          <div className="space-y-4">
+            <p className="font-bold">01. Direct Procurement Access</p>
+            <p className="text-slate-600 text-sm mb-4">Engage face-to-face with national and county governments actively seeking infrastructure and tech solutions.</p>
+            
+            <p className="font-bold">02. B2B Deal-Making</p>
+            <p className="text-slate-600 text-sm mb-4">Participate in closed-door investor and operator matchmaking focused on fleet renewal and systems integration.</p>
+            
+            <p className="font-bold">03. Multi-Modal Reach</p>
+            <p className="text-slate-600 text-sm">Showcase your brand across dedicated sector zones representing the entire transport mandate.</p>
+          </div>
+        </div>
+
+        <div className="mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-xs">
+          <p>© 2026 Kenya Transport Summit & Expo. All Rights Reserved.</p>
+          <p>www.kenyatransportsummit.com | partnerships@kenyatransportsummit.com</p>
+        </div>
+      </div>
     </div>
   );
 };

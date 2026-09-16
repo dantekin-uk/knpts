@@ -90,6 +90,8 @@ const AboutSection = ({ setPage }) => {
                 src={aboutimage}
                 alt="Summit Official" 
                 className="w-full h-[300px] md:h-[400px] object-cover transition-all duration-700"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
             </motion.div>
@@ -113,14 +115,25 @@ const AboutSection = ({ setPage }) => {
               Why Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green ">2026 Summit?</span>
             </h3>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setPage('WhyAttend')}
-            className="px-8 py-3 bg-napta-blue text-white rounded-xl font-bold text-sm shadow-lg shadow-napta-blue/20 transition-all"
-          >
-            Learn More
-          </motion.button>
+          
+          <div className="flex flex-wrap gap-3 sm:gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setPage('WhyAttend')}
+              className="btn-mobile bg-napta-blue text-white rounded-xl font-bold shadow-lg shadow-napta-blue/20 transition-all"
+            >
+              Learn More
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setPage('Programme')}
+              className="btn-mobile bg-white border border-slate-200 text-napta-navy rounded-xl font-bold shadow-sm hover:shadow-md transition-all"
+            >
+              Full Programme
+            </motion.button>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-slate-100">
@@ -162,7 +175,7 @@ const AboutSection = ({ setPage }) => {
         >
            <p className="text-sm font-bold opacity-90 uppercase tracking-widest">Official Summit of the National Public Transport Alliance</p>
            <div className="h-[1px] md:h-4 w-full md:w-[1px] bg-white/20"></div>
-           <p className="text-sm font-medium">In Partnership with IDS, University of Nairobi</p>
+           <p className="text-sm font-medium">In Partnership with IDS, University of Nairobi And Droll Alfa</p>
         </motion.div>
 
       </motion.div>

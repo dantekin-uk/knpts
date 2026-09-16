@@ -20,7 +20,7 @@ const Hero = ({ setPage }) => {
   };
 
   return (
-    <header className="relative min-h-screen w-full flex items-center justify-center pt-40 md:pt-52 pb-12 md:pb-20 overflow-hidden">
+    <header className="relative min-h-[60vh] lg:min-h-[55vh] w-full flex items-center justify-center pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden">
       <video
         autoPlay
         muted
@@ -32,8 +32,8 @@ const Hero = ({ setPage }) => {
         <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
       </video>
 
-      {/* Subtle top gradient overlay to improve logo visibility when navbar is transparent */}
-      <div className="absolute top-0 left-0 right-0 h-30 bg-gradient-to-r from-white/14 to-black/14 z-[0.5] pointer-events-none"></div>
+      {/* Dark overlay to improve text visibility */}
+      <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none"></div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
@@ -57,10 +57,10 @@ const Hero = ({ setPage }) => {
               className="text-base md:text-lg lg:text-xl font-medium text-slate-200 max-w-3xl mx-auto leading-relaxed px-6"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Building Safe, Sustainable and Inclusive Transport Systems
+             Building Safe, Sustainable, Inclusive and Integrated Transport Systems for the people
             </p>
             <p className="text-xs md:text-base font-normal text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em]">
-              30th Sep - 2nd Oct 2026 • KICC, Nairobi
+              4th Nov - 6th Nov 2026 • KICC, Nairobi
             </p>
           </motion.div>
 
@@ -80,15 +80,16 @@ const Hero = ({ setPage }) => {
             <motion.button
               whileHover={{ 
                 scale: 1.03,
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                borderColor: 'rgba(255, 255, 255, 0.3)'
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                borderColor: 'rgba(255, 255, 255, 0.5)'
               }}
               whileTap={{ scale: 0.97 }}
-              className="px-6 py-3 bg-white/5 border border-white/20 text-white rounded-xl font-bold text-base transition-all duration-300"
+              className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-xl font-bold text-base transition-all duration-300 shadow-lg"
               onClick={() => setPage('WhyAttend')}
             >
               Why Attend the Summit?
             </motion.button>
+            
           </motion.div>
 
         </motion.div>

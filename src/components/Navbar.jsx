@@ -64,7 +64,8 @@ const Navbar = ({ activePage, setPage }) => {
   };
 
   const isHome = activePage === 'Home';
-  const showScrolledStyle = scrolled || !isHome || isMobile;
+  // Always show the white background style as requested ("the white one it should be static")
+  const showScrolledStyle = true;
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-b h-20 md:h-24 ${
@@ -91,7 +92,7 @@ const Navbar = ({ activePage, setPage }) => {
                 showScrolledStyle ? 'bg-napta-blue/20' : 'bg-white/25'
               }`}
             />
-            <img src={logo} alt="NAPTA Logo" className="h-60 md:h-70 w-auto object-contain transition-all duration-500 filter drop-shadow-md group-hover:drop-shadow-xl scale-110 origin-left flex-shrink-0" />
+            <img src={logo} alt="NAPTA Logo" className="h-45 md:h-52 w-auto object-contain transition-all duration-500 filter drop-shadow-md group-hover:drop-shadow-xl scale-110 origin-left flex-shrink-0" />
           </motion.div>
         </div>
         
@@ -299,7 +300,7 @@ const Navbar = ({ activePage, setPage }) => {
               onClick={() => setPage('Registration')} 
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-8 py-3 rounded-xl font-bold text-base transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 ${
+              className={`btn-large-mobile rounded-xl font-bold transition-all duration-300 shadow-lg active:scale-95 flex items-center gap-2 ${
                 showScrolledStyle 
                   ? 'bg-napta-blue text-white hover:bg-napta-navy shadow-napta-blue/20' 
                   : 'bg-white text-napta-navy hover:bg-napta-blue hover:text-white shadow-white/10'
@@ -464,12 +465,6 @@ const Navbar = ({ activePage, setPage }) => {
                       The 3-Day Transport Expo
                     </button>
                     <button 
-                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'The Expo' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
-                      onClick={() => { setPage('The Expo'); setIsOpen(false); }}
-                    >
-                      The 3-Day Transport Expo
-                    </button>
-                    <button 
                       className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'ExhibitWithUs' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
                       onClick={() => { setPage('ExhibitWithUs'); setIsOpen(false); }}
                     >
@@ -498,7 +493,7 @@ const Navbar = ({ activePage, setPage }) => {
                   setPage('Registration');
                   setIsOpen(false); 
                 }}
-                className="mt-4 w-full py-4 rounded-xl font-bold text-center shadow-xl transition-all flex items-center justify-center gap-2 bg-white text-napta-blue"
+                className="mt-4 w-full py-3 sm:py-4 rounded-xl font-bold text-center shadow-xl transition-all flex items-center justify-center gap-2 bg-white text-napta-blue text-sm sm:text-base"
               >
                 <UserPlus size={20} />
                 Register
