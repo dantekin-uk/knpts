@@ -266,7 +266,7 @@ const ExcellenceAwards = ({ setPage }) => {
                   className="text-2xl md:text-3xl font-extrabold text-napta-navy leading-tight mb-6 tracking-tight"
                   style={{ fontFamily: "'Poppins', sans-serif" }}
                 >
-                  October 2nd, 2026 | <br/>
+                  November 6th, 2026 | <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">The KICC Grand Ballroom.</span>
                 </motion.h2>
 

@@ -74,7 +74,7 @@ const ExhibitWithUs = ({ setPage }) => {
               </motion.h1>
 
               <motion.div variants={itemVariants} className="mb-8">
-                <p className="text-napta-blue font-bold text-sm uppercase tracking-widest mb-2">September 30th — October 2nd, 2026 | KICC, Nairobi</p>
+                <p className="text-napta-blue font-bold text-sm uppercase tracking-widest mb-2">November 4th — 6th, 2026 | KICC, Nairobi</p>
                 <p className="text-slate-600 text-sm md:text-base font-normal leading-relaxed max-w-xl">
                   Position your physical assets and digital solutions directly in front of the government decision-makers, operators, and institutional investors funding Kenya’s transport future. Premium floor space is strictly limited.
                 </p>
@@ -306,7 +306,7 @@ const ExhibitWithUs = ({ setPage }) => {
           <div>
             <h2 className="text-2xl font-bold mb-4 border-l-4 border-sustainable-green pl-4">Key Details</h2>
             <ul className="space-y-2 text-slate-700 font-bold">
-              <li>Date: September 30th – October 2nd, 2026</li>
+              <li>Date: November 4th – 6th, 2026</li>
               <li>Venue: KICC, Nairobi, Kenya</li>
               <li>Expected Attendance: 2,000+ Delegates</li>
             </ul>

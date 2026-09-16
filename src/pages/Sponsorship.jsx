@@ -315,7 +315,7 @@ const Sponsorship = ({ setPage }) => {
           <div>
             <h2 className="text-2xl font-bold mb-4 border-l-4 border-sustainable-green pl-4">Key Details</h2>
             <ul className="space-y-2 text-slate-700 font-bold">
-              <li>Date: September 30th – October 2nd, 2026</li>
+              <li>Date: November 4th – 6th, 2026</li>
               <li>Venue: KICC, Nairobi, Kenya</li>
               <li>Expected Attendance: 2,000+ Delegates</li>
             </ul>

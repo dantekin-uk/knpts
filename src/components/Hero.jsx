@@ -60,7 +60,7 @@ const Hero = ({ setPage }) => {
              Building Safe, Sustainable, Inclusive and Integrated Transport Systems for the people
             </p>
             <p className="text-xs md:text-base font-normal text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em]">
-              30th Sep - 2nd Oct 2026 • KICC, Nairobi
+              4th Nov - 6th Nov 2026 • KICC, Nairobi
             </p>
           </motion.div>
 

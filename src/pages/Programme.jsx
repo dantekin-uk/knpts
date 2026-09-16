@@ -21,7 +21,7 @@ export default function Programme({ setPage }) {
   const days = [
     {
       id: 1,
-      date: "Sep 30, 2026",
+      date: "Nov 4, 2026",
       title: "Day 01: The Policy Mandate",
       events: [
         { time: "09:00 AM", title: "The Opening Ceremony & Presidential Plenary", description: "Setting the National & Regional Transport Agenda: High-level keynote addresses from government leadership and international bodies. A unified look at Kenya's integrated multi-modal masterplan.", location: "Grand Hall" },
@@ -32,7 +32,7 @@ export default function Programme({ setPage }) {
     },
     {
       id: 2,
-      date: "Oct 01, 2026",
+      date: "Nov 5, 2026",
       title: "Day 02: The Ecosystem & Innovation",
       events: [
         { time: "09:00 AM", title: "Main Stage Plenary", description: "Digitalization, Data, and ITS: The integration of Intelligent Transport Systems (ITS), AI, and digital ticketing to create a seamless, cashless, and highly efficient national network.", location: "Main Stage" },
@@ -43,7 +43,7 @@ export default function Programme({ setPage }) {
     },
     {
       id: 3,
-      date: "Oct 02, 2026",
+      date: "Nov 6, 2026",
       title: "Day 03: Capital & Investment",
       events: [
         { time: "09:00 AM", title: "Strategic Plenary Panel", description: "Financing Sustainable Transport: A high-stakes discussion on structuring Public-Private Partnerships (PPPs), attracting foreign direct investment (FDI), and accessing global green/climate funds.", location: "Grand Hall" },

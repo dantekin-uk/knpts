@@ -126,7 +126,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
             <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-wider">Event Details</h4>
             <div className="space-y-4">
               {[
-                { icon: Calendar, text: '30th Sep - 2nd Oct 2026' },
+                { icon: Calendar, text: '4th Nov - 6th Nov 2026' },
                 { icon: MapPin, text: 'Nairobi, Kenya' },
                 { icon: Mail, text: 'info@kenyatransportsummit.com' }
               ].map((item, i) => (
