@@ -167,7 +167,7 @@ const packages = [
   }
 ];
 
-const NAPTA_EMAIL = 'info@napta.or.ke';
+const NAPTA_EMAIL = 'info@napta.ok.ke';
 
 const FORM_SUBMIT_ACTION = `https://formsubmit.co/ajax/${NAPTA_EMAIL}`;
 
