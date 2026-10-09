@@ -44,7 +44,7 @@ const Footer = ({ setPage, scrollToAbout }) => {
               <div className="flex items-center gap-4">
                 <span className="text-xs font-black text-napta-blue">NAPTA KENYA</span>
                 <div className="h-3 w-[1px] bg-white/20"></div>
-                <span className="text-xs font-black text-slate-500">IDS, UNIVERSITY OF NAIROBI & DROLL ALFA </span>
+                <span className="text-xs font-black text-slate-500">IDS, UNIVERSITY OF NAIROBI & TRADE BRIDGE EVENTS LIMITED</span>
               </div>
             </div>
           </div>

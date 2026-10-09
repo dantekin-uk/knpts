@@ -43,7 +43,7 @@ const Partners = ({ setPage }) => {
       name: "Industry & Tech Partners",
       description: "Innovators and service providers delivering the future of mobility.",
       partners: [
-        { name: "Droll", logo: drollLogo, role: "Technology Partner", bio: "Leading the digital transformation in transport logistics and smart mobility solutions." }
+        { name: "Trade Bridge Events Limited", logo: drollLogo, role: "Events Partner", bio: "Delivering end-to-end event management, production, and strategic stakeholder engagement for the summit." }
       ]
     }
   ];

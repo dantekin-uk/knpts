@@ -61,7 +61,7 @@ const AboutSection = ({ setPage }) => {
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-sustainable-green rounded-2xl flex items-center justify-center text-white shadow-lg shadow-sustainable-green/40 group-hover:scale-110 transition-transform duration-500">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <h4 className="text-sustainable-green font-bold text-xs uppercase tracking-widest mb-4">The 2026 Mandate</h4>
@@ -175,7 +175,7 @@ const AboutSection = ({ setPage }) => {
         >
            <p className="text-sm font-bold opacity-90 uppercase tracking-widest">Official Summit of the National Public Transport Alliance</p>
            <div className="h-[1px] md:h-4 w-full md:w-[1px] bg-white/20"></div>
-           <p className="text-sm font-medium">In Partnership with IDS, University of Nairobi And Droll Alfa</p>
+           <p className="text-sm font-medium">In Partnership with IDS, University of Nairobi And Trade Bridge Events Limited</p>
         </motion.div>
 
       </motion.div>

@@ -112,18 +112,18 @@ const Partners = ({ setPage }) => {
           {/* Layer 2: In Partnership With */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-24">
             <p className="text-[9px] font-black text-slate-300 uppercase tracking-[0.3em] text-center mb-12">In Partnership With</p>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
+            <div className="flex flex-row justify-center items-center gap-3 sm:gap-6 md:gap-14 lg:gap-24">
               <div className="group flex flex-col items-center">
-                <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
+                <div className="h-14 w-32 sm:h-20 sm:w-52 md:h-24 md:w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
                    <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
-                <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">Academic Partner</span>
+                <span className="mt-2 sm:mt-4 text-[7px] sm:text-[8px] font-bold text-slate-400 uppercase tracking-widest">Academic Partner</span>
               </div>
               <div className="group flex flex-col items-center">
-                <div className="h-24 w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                   <img src={drollLogo} alt="Droll" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
+                <div className="h-14 w-32 sm:h-20 sm:w-52 md:h-24 md:w-64 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
+                   <img src={drollLogo} alt="Trade Bridge Events Limited" className="max-h-full max-w-full object-contain transition-all duration-500" loading="lazy" decoding="async" />
                 </div>
-                <span className="mt-4 text-[8px] font-bold text-slate-400 uppercase tracking-widest">Technology Partner</span>
+                <span className="mt-2 sm:mt-4 text-[7px] sm:text-[8px] font-bold text-slate-400 uppercase tracking-widest">Events Partner</span>
               </div>
             </div>
           </motion.div>

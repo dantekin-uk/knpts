@@ -19,6 +19,7 @@ import TransportExpo from './pages/TransportExpo';
 import Contact from './pages/Contact';
 import PartnersPage from './pages/Partners';
 import Speakers from './pages/Speakers';
+import ExhibitionPackages from './pages/ExhibitionPackages';
 import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
         return <PitchDay setPage={setCurrentPage} />;
       case 'Sponsorship':
         return <Sponsorship setPage={setCurrentPage} />;
+      case 'ExhibitionPackages':
+        return <ExhibitionPackages setPage={setCurrentPage} />;
       case 'Contact':
         return <Contact setPage={setCurrentPage} />;
       case 'Speakers':

@@ -9,6 +9,7 @@ import Involvement from '../components/Involvement';
 import Speakers from '../components/Speakers';
 import Partners from '../components/Partners';
 import SummitCountdown from '../components/SummitCountdown';
+import ExhibitionPackagesHome from '../components/ExhibitionPackagesHome';
 
 const Home = ({ setPage }) => {
   return (
@@ -26,6 +27,7 @@ const Home = ({ setPage }) => {
       <Speakers setPage={setPage} />
       <Involvement setPage={setPage} />
       <Partners setPage={setPage} />
+      <ExhibitionPackagesHome setPage={setPage} />
     </motion.div>
   );
 };

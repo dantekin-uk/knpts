@@ -597,14 +597,14 @@ const About = ({ setPage }) => {
               <div className="h-16 w-full flex items-center justify-center gap-6 mb-4">
                 <img src={idslogo} alt="IDS UoN" className="max-h-full max-w-[90px] object-contain" loading="lazy" decoding="async" />
                 <div className="h-8 w-px bg-slate-100"></div>
-                <img src={drollLogo} alt="Droll" className="max-h-full max-w-[90px] object-contain" loading="lazy" decoding="async" />
+                <img src={drollLogo} alt="Trade Bridge Events Limited" className="max-h-full max-w-[90px] object-contain" loading="lazy" decoding="async" />
               </div>
               <h4 className="text-sm font-bold text-napta-navy mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>Strategic Partners</h4>
               <p className="text-slate-600 text-[10px] leading-relaxed font-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
-                IDS provides the research foundation, while Droll Alfa leads digital transformation and smart mobility.
+                IDS provides the research foundation, while Trade Bridge Events Limited delivers end-to-end event management and production.
               </p>
               <div className="mt-auto pt-3">
-                <span className="text-[8px] font-bold text-sustainable-green uppercase tracking-widest">Academic & Tech Partners</span>
+                <span className="text-[8px] font-bold text-sustainable-green uppercase tracking-widest">Academic & Events Partners</span>
               </div>
             </motion.div>
           </div>

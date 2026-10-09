@@ -59,7 +59,7 @@ const Navbar = ({ activePage, setPage }) => {
     if (activePage === linkId) return true;
     if (linkId === 'Summit' && ['About', 'WhyAttend', 'Partners'].includes(activePage)) return true;
     if (linkId === 'Programme' && ['Programme', 'InnovationTours', 'ExcellenceAwards', 'Networking'].includes(activePage)) return true;
-    if (linkId === 'The Expo' && ['TransportExpo', 'The Expo', 'ExhibitWithUs', 'PitchDay', 'Sponsorship'].includes(activePage)) return true;
+    if (linkId === 'The Expo' && ['TransportExpo', 'The Expo', 'ExhibitWithUs', 'PitchDay', 'Sponsorship', 'ExhibitionPackages'].includes(activePage)) return true;
     return false;
   };
 
@@ -265,6 +265,7 @@ const Navbar = ({ activePage, setPage }) => {
                       <div className="bg-napta-navy backdrop-blur-xl rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-white/10 overflow-hidden p-2">
                       {[
                         { name: 'The 3-Day Transport Expo', id: 'TransportExpo' },
+                        { name: 'Exhibition Packages', id: 'ExhibitionPackages' },
                         { name: 'Exhibit With Us', id: 'ExhibitWithUs' },
                         { name: 'Summit Pitch Day', id: 'PitchDay' },
                         { name: 'Sponsorship & Strategic Partnerships', id: 'Sponsorship' }
@@ -463,6 +464,12 @@ const Navbar = ({ activePage, setPage }) => {
                       onClick={() => { setPage('TransportExpo'); setIsOpen(false); }}
                     >
                       The 3-Day Transport Expo
+                    </button>
+                    <button 
+                      className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'ExhibitionPackages' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
+                      onClick={() => { setPage('ExhibitionPackages'); setIsOpen(false); }}
+                    >
+                      Exhibition Packages
                     </button>
                     <button 
                       className={`px-4 py-2 text-base font-bold text-left rounded-xl transition-colors ${activePage === 'ExhibitWithUs' ? 'text-white bg-napta-blue' : 'text-white/70 hover:bg-white/10'}`}
