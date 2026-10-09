@@ -6,7 +6,8 @@ import {
   Award,
   Star,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  LayoutGrid
 } from 'lucide-react';
 
 const packages = [
@@ -125,6 +126,35 @@ const packages = [
       'Summit Catalogue — ¼ Page'
     ],
     cta: 'Secure Bronze'
+  },
+  {
+    id: 'booth',
+    name: 'Exhibition Booth',
+    price: '180,000',
+    priceSuffix: '/-',
+    badge: 'Standard Stand — 3m × 2m',
+    topBand: 'bg-gradient-to-r from-napta-navy/70 via-napta-blue/60 to-napta-navy/70',
+    accent: 'bg-gradient-to-r from-napta-navy to-napta-blue',
+    accentText: 'text-napta-navy',
+    accentBorder: 'border-napta-navy/20',
+    accentGlow: '',
+    cardBg: 'bg-white border border-napta-navy/15',
+    cardBody: 'text-napta-navy',
+    cardMuted: 'text-slate-500',
+    cardCheckBg: 'bg-gradient-to-r from-napta-navy to-napta-blue',
+    cardBtn: 'bg-napta-navy/5 text-napta-navy border border-napta-navy/20 hover:bg-napta-navy hover:text-white',
+    icon: LayoutGrid,
+    iconBg: 'bg-gradient-to-br from-napta-navy to-napta-blue',
+    iconText: 'text-white',
+    highlights: [
+      'Shell Scheme Stand: 3m × 2m (6 sqm)',
+      '≈ KES 30,000 per sqm',
+      'Modern Octanorm System Stand',
+      'Fascia + 1 Table + 2 Chairs',
+      '1 Socket + 2 Spotlights (Pro-rated)',
+      'Listing in Exhibition Guide'
+    ],
+    cta: 'Book Booth'
   }
 ];
 
@@ -176,12 +206,12 @@ const ExhibitionPackagesHome = ({ setPage }) => {
               Exhibition & Sponsorship <span className="text-transparent bg-clip-text bg-gradient-to-r from-napta-blue to-sustainable-green">Packages.</span>
             </h2>
             <p className="text-slate-500 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl mx-auto mt-3 sm:mt-4 px-1">
-              Four tiered packages designed to position your brand at the centre of Kenya's transport investment agenda.
+              Five package options — from title sponsorship to a standard exhibition booth — designed to position your brand at the centre of Kenya's transport investment agenda.
               Limited slots available — allocated on a first-come, first-served basis.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 sm:gap-5 lg:gap-6">
             {packages.map((pkg, index) => {
               const Icon = pkg.icon;
               const isFeatured = pkg.id === 'platinum';

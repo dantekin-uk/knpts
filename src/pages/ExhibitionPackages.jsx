@@ -19,7 +19,8 @@ import {
   Zap,
   Check,
   AlertCircle,
-  Globe
+  Globe,
+  LayoutGrid
 } from 'lucide-react';
 
 const packages = [
@@ -164,6 +165,41 @@ const packages = [
       'Summit Catalogue — ¼ Page'
     ],
     cta: 'Secure Bronze'
+  },
+  {
+    id: 'booth',
+    name: 'Exhibition Booth',
+    price: '180,000',
+    priceSuffix: '/-',
+    badge: 'Standard Stand — 3m × 2m (6 sqm)',
+    scheme: 'navyOutline',
+    topBand: 'bg-gradient-to-r from-napta-navy/70 via-napta-blue/60 to-napta-navy/70',
+    accent: 'bg-gradient-to-r from-napta-navy to-napta-blue',
+    accentText: 'text-napta-navy',
+    accentSoft: 'bg-napta-navy/5',
+    accentBorder: 'border-napta-navy/20',
+    accentGlow: '',
+    cardBg: 'bg-white border border-napta-navy/15',
+    cardBody: 'text-napta-navy',
+    cardMuted: 'text-slate-500',
+    cardSubtleBorder: 'border-slate-200',
+    cardCheckBg: 'bg-gradient-to-r from-napta-navy to-napta-blue',
+    cardBtn: '',
+    cardBtnOutline: 'bg-napta-navy/5 text-napta-navy border border-napta-navy/20 hover:bg-napta-navy hover:text-white',
+    icon: LayoutGrid,
+    iconBg: 'bg-gradient-to-br from-napta-navy to-napta-blue',
+    iconText: 'text-white',
+    highlights: [
+      'Shell Scheme Stand: 3m × 2m (6 sqm)',
+      '≈ KES 30,000 per sqm',
+      'Modern Octanorm System Stand',
+      'Company Name Fascia Panel',
+      '1 Table + 2 Chairs',
+      '1 Electrical Socket (5A)',
+      '2 Spotlights per 9 sqm (Pro-rated)',
+      'Company Listing in Exhibition Guide'
+    ],
+    cta: 'Book Booth'
   }
 ];
 
@@ -401,7 +437,7 @@ const ExhibitionPackages = ({ setPage }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 lg:grid-cols-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 sm:gap-5 lg:gap-6"
           >
             {packages.map((pkg, index) => {
               const Icon = pkg.icon;
