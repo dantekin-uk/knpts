@@ -87,7 +87,7 @@ const Hero = ({ setPage }) => {
               className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-xl font-bold text-base transition-all duration-300 shadow-lg"
               onClick={() => setPage('ExhibitionPackages')}
             >
-              Exhibition
+              Exhibit Now
             </motion.button>
             
           </motion.div>
